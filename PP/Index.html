@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DC HAVARD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #bbf7d0, #f0fdf4);
+      color: #064e3b;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    .marquee-wrap {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      will-change: transform;
+    }
+
+    .marquee-track img {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      object-fit: cover;
+    }
+
+    .paragraph {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="relative py-10">
+  <!-- Sampul di belakang setengah -->
+  <div class="absolute top-0 left-0 w-full h-40 overflow-hidden rounded-b-full">
+    <img src="IMG/SnapInsta.to 4.jpg" alt="Foto Sampul" class="w-full h-full object-cover opacity-90">
+  </div>
+
+  <!-- Foto Profil di depan -->
+  <div class="relative z-10 w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
+    <img src="IMG/SnapInsta.to 2.jpg" alt="Foto Profil Rizal" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Judul -->
+  <h1 class="bg-white text-green-800 px-8 py-3 rounded-full shadow font-semibold text-xl inline-block">
+    DC HAVARD
+  </h1>
+</header>
+
+  <!-- GALERI BERGERAK -->
+  <section class="my-14">
+    <div class="marquee-wrap mx-auto max-w-full">
+      <div id="marquee" class="marquee-track">
+        <img src="https://via.placeholder.com/220x220?text=1" alt="1">
+        <img src="https://via.placeholder.com/220x220?text=2" alt="2">
+        <img src="https://via.placeholder.com/220x220?text=3" alt="3">
+        <img src="https://via.placeholder.com/220x220?text=4" alt="4">
+        <img src="https://via.placeholder.com/220x220?text=5" alt="5">
+        <img src="https://via.placeholder.com/220x220?text=6" alt="6">
+        <img src="https://via.placeholder.com/220x220?text=7" alt="7">
+        <img src="https://via.placeholder.com/220x220?text=8" alt="8">
+      </div>
+    </div>
+  </section>
+
+  <!-- PARAGRAF DENGAN EFEK MUNCUL -->
+  <section class="bg-gradient-to-b from-green-200 via-green-100 to-white py-12 px-4">
+    <div class="space-y-10 max-w-xl mx-auto">
+      <div class="paragraph">
+        <h2 class="text-green-800 text-lg font-semibold mb-2">Judul Paragraf 1</h2>
+        <p class="text-green-950 leading-relaxed">Isi paragraf pertama yang muncul dengan animasi halus ketika di-scroll ke tampilan.</p>
+      </div>
+      <div class="paragraph">
+        <h2 class="text-green-800 text-lg font-semibold mb-2">Judul Paragraf 2</h2>
+        <p class="text-green-950 leading-relaxed">Isi paragraf kedua yang menjelaskan konten tambahan atau pengalaman.</p>
+      </div>
+      <div class="paragraph">
+        <h2 class="text-green-800 text-lg font-semibold mb-2">Judul Paragraf 3</h2>
+        <p class="text-green-950 leading-relaxed">Isi paragraf ketiga yang memberi kesan profesional dan rapi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGIAN TAMBAHAN 1: TEKS KIRI, GAMBAR KANAN -->
+<section class="py-16 bg-white">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 px-6">
+    
+    <!-- TEKS DI KIRI -->
+    <div class="md:w-1/2 text-left space-y-4">
+      <h2 class="text-2xl font-bold text-green-800">Judul Bagian Pertama</h2>
+      <p class="text-green-900 leading-relaxed">
+        teks deskripsi untuk bagian pertama.  
+        penjelasan tentang topik, pengalaman, atau ide yang ingin kamu tampilkan di sini.  
+        Gambar di sebelah kanan akan memperkuat isi teks.
+      </p>
+      <button class="mt-4 bg-green-700 text-white px-5 py-2 rounded-full shadow hover:bg-green-800 transition">
+        Selengkapnya
+      </button>
+    </div>
+
+    <!-- GAMBAR DI KANAN -->
+    <div class="md:w-1/2">
+      <img src="IMG/SnapInsta.to 2.jpg" alt="Gambar Bagian Pertama" class="rounded-2xl shadow-lg w-full object-cover">
+    </div>
+
+  </div>
+</section>
+
+<!-- BAGIAN TAMBAHAN 2: GAMBAR KIRI, TEKS KANAN -->
+<section class="py-16 bg-green-50">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center gap-8 px-6">
+    
+    <!-- TEKS DI KANAN -->
+    <div class="md:w-1/2 text-left space-y-4">
+      <h2 class="text-2xl font-bold text-green-800">Judul Bagian Kedua</h2>
+      <p class="text-green-900 leading-relaxed">
+        teks deskripsi untuk bagian pertama.  
+        penjelasan tentang topik, pengalaman, atau ide yang ingin kamu tampilkan di sini.  
+        Gambar di sebelah kanan akan memperkuat isi teks.
+      </p>
+      <button class="mt-4 bg-green-700 text-white px-5 py-2 rounded-full shadow hover:bg-green-800 transition">
+        Pelajari Lebih Lanjut
+      </button>
+    </div>
+
+    <!-- GAMBAR DI KIRI -->
+    <div class="md:w-1/2">
+      <img src="IMG/SnapInsta.to 1.jpg" alt="Gambar Bagian Kedua" class="rounded-2xl shadow-lg w-full object-cover">
+    </div>
+
+  </div>
+</section>
+
+  <script>
+    // --- MARQUEE TAK BERHENTI ---
+    const marquee = document.getElementById('marquee');
+    const speed = 1; // pixel per frame
+    function startMarquee() {
+      let pos = 0;
+      let lastTime = performance.now();
+
+      function step(time) {
+        const delta = time - lastTime;
+        lastTime = time;
+        pos -= speed * (delta / 16.7);
+
+        const first = marquee.children[0];
+        if (first.getBoundingClientRect().right < 0) {
+          marquee.appendChild(first);
+          pos += first.offsetWidth + 16; // 16px = 1rem gap
+        }
+
+        marquee.style.transform = `translateX(${pos}px)`;
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    window.addEventListener('load', startMarquee);
+
+    // --- PARAGRAF ANIMASI SAAT SCROLL ---
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.paragraph').forEach(p => observer.observe(p));
+  </script>
+
+</body>
+</html>
