@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280">
+  <title>AL-FALAH RUMBIA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Perbesar teks secara umum dengan menaikkan ukuran font root.
+       Kecuali: tabel dan caption (p.text-sm) akan di-reset supaya tidak berubah. */
+    html { font-size: 18px; } /* default 16px -> 18px, semua rem-based Tailwind jadi lebih besar */
+    body {
+      width: 1280px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: url('Background.jpg') no-repeat center top fixed;
+      background-size: cover;
+      color: #EAEAEA;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #C7F5D9;
+    }
+
+    p, td, th {
+      color: #EAEAEA;
+    }
+
+    /* Reset ukuran font untuk tabel (tetap kecil seperti semula) */
+    table, table th, table td {
+      font-size: 14px; /* kembalikan ke ukuran tabel yang diinginkan */
+    }
+
+    /* Jangan ubah caption di bawah gambar (menggunakan Tailwind text-sm) */
+    p.text-sm {
+      font-size: 14px; /* pastikan caption tetap kecil */
+      line-height: 1.2;
+    }
+
+    .marquee-wrap { overflow: hidden; width: 100%; position: relative; }
+    .marquee-track { display: flex; gap: 1rem; align-items: center; will-change: transform; }
+
+    .marquee-track img {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      object-fit: cover;
+    }
+
+    .divider {
+      border-top: 3px solid rgba(191,225,209,0.6);
+      width: 80%;
+      margin: 3rem auto;
+    }
+
+    table th {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .scroll-anim {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .extended-banner {
+      width: calc(100% + 160px);
+      max-width: none;
+      margin-left: -80px;
+      margin-right: -80px;
+      display: block;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="relative scroll-anim">
+  <div class="w-full h-64 overflow-hidden rounded-b-3xl shadow-lg">
+    <img src="KOP PONDOK 3.png" alt="Foto Sampul" class="w-full h-full object-cover opacity-90">
+  </div>
+</header>
+
+<div class="divider scroll-anim"></div>
+
+<section class="my-14 bg-transparent scroll-anim">
+  <div class="marquee-wrap mx-auto max-w-full">
+    <div id="marquee" class="marquee-track">
+      <img src="https://via.placeholder.com/220x220?text=1" alt="1">
+      <img src="https://via.placeholder.com/220x220?text=2" alt="2">
+      <img src="https://via.placeholder.com/220x220?text=3" alt="3">
+      <img src="https://via.placeholder.com/220x220?text=4" alt="4">
+      <img src="https://via.placeholder.com/220x220?text=5" alt="5">
+      <img src="https://via.placeholder.com/220x220?text=6" alt="6">
+      <img src="https://via.placeholder.com/220x220?text=7" alt="7">
+      <img src="https://via.placeholder.com/220x220?text=8" alt="8">
+    </div>
+  </div>
+</section>
+
+<div class="divider scroll-anim"></div>
+
+<section class="py-12 px-4 bg-transparent scroll-anim">
+  <div class="space-y-10 max-w-xl mx-auto">
+    <div>
+      <h2 class="text-lg font-semibold mb-2">VISI</h2>
+      <p class="leading-relaxed">Mencetak para santri sebagai kader ahlus sunnah wal jama'ah an Nahdliyah
+yang teguh dalam pinsip ilmiyah-amaliyah dan amaliyah-ilmiyah serta
+berakhlaqul karimah.</p>
+    </div>
+    <div>
+      <h2 class="text-lg font-semibold mb-2">MISI</h2>
+      <p class="leading-relaxed">*Menjadikan Al Falah sebagai rujukan pengembangan keilmuan keislaman
+dan da'wah multi kultural
+*Mengembangkan pesantren secara keilmuan dan kelembagaan
+* Melakukan pencerahan kepada masyarakat melalui kegiatan ta'lim,
+tarbiyah dan ta'dib
+*Meningkatkan kompetensi lulusan pondok pesantren melalui
+pembekalan moral. skill dan penguatan di bidang ilmiyah-amaliyah dan
+amaliyah-ilmiyah.
+</p>
+    </div>
+    <div>
+      <h2 class="text-lg font-semibold mb-2">Judul Paragraf 3</h2>
+      <p class="leading-relaxed">Isi paragraf ketiga yang memberi kesan profesional dan rapi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-transparent scroll-anim">
+  <div class="max-w-5xl mx-auto flex flex-row items-center gap-8 px-6">
+    <div class="w-1/2 text-left space-y-4">
+      <h2 class="text-2xl font-bold">Judul Bagian Pertama</h2>
+      <p class="leading-relaxed">
+        teks deskripsi untuk bagian pertama.  
+        penjelasan tentang topik, pengalaman, atau ide yang ingin kamu tampilkan di sini.  
+        Gambar di sebelah kanan akan memperkuat isi teks.
+      </p>
+    </div>
+    <div class="w-1/2">
+      <img src="IMG/SnapInsta.to 2.jpg" alt="Gambar Bagian Pertama" class="rounded-2xl shadow-lg w-full object-cover">
+    </div>
+  </div>
+</section>
+
+<div class="divider scroll-anim"></div>
+
+<section class="py-16 bg-transparent scroll-anim">
+  <div class="max-w-5xl mx-auto flex flex-row items-center gap-8 px-6">
+    <div class="w-1/2 grid grid-cols-2 gap-4">
+      <img src="IMG/g1.jpg" alt="Gambar 1" class="rounded-xl shadow-md w-full h-48 object-cover">
+      <img src="IMG/g2.jpg" alt="Gambar 2" class="rounded-xl shadow-md w-full h-48 object-cover">
+      <img src="IMG/g3.jpg" alt="Gambar 3" class="rounded-xl shadow-md w-full h-48 object-cover">
+      <img src="IMG/g4.jpg" alt="Gambar 4" class="rounded-xl shadow-md w-full h-48 object-cover">
+    </div>
+    <div class="w-1/2 text-left space-y-4">
+      <h2 class="text-2xl font-bold">KEGIATAN TAHUNAN</h2>
+      <p class="leading-relaxed">contoh isi dari teks nya yaitu teks asli</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider scroll-anim"></div>
+
+<section class="py-16 bg-transparent scroll-anim">
+  <div class="max-w-5xl mx-auto flex flex-row-reverse items-center gap-8 px-6">
+    <div class="w-1/2 grid grid-cols-2 gap-4">
+      <img src="IMG/g5.jpg" alt="Gambar 5" class="rounded-xl shadow-md w-full h-48 object-cover">
+      <img src="IMG/g6.jpg" alt="Gambar 6" class="rounded-xl shadow-md w-full h-48 object-cover">
+      <img src="IMG/g7.jpg" alt="Gambar 7" class="rounded-xl shadow-md w-full h-48 object-cover">
+      <img src="IMG/g8.jpg" alt="Gambar 8" class="rounded-xl shadow-md w-full h-48 object-cover">
+    </div>
+    <div class="w-1/2 text-left space-y-4">
+      <h2 class="text-2xl font-bold">KUGIATAN BULANAN</h2>
+      <p class="leading-relaxed">contoh isi dari teks nya yaitu teks asli</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider scroll-anim"></div>
+
+<section class="py-16 bg-transparent scroll-anim">
+  <div class="max-w-5xl mx-auto flex flex-row items-center gap-8 px-6">
+    <div class="w-1/2 grid grid-cols-3 gap-4">
+      <img src="foto.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p2.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p3.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p4.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p5.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p6.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p7.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p8.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+      <img src="IMG/p9.jpg" class="rounded-xl shadow-md w-full h-28 object-cover">
+    </div>
+    <div class="w-1/2 text-left space-y-4">
+      <h2 class="text-2xl font-bold">KEGIATAN MINGGUAN</h2>
+      <p class="leading-relaxed">
+        Bagian ini menampilkan 9 foto dalam grid yang kini lebih ramping  
+        dan selaras dengan ukuran bagian sebelumnya.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider scroll-anim"></div>
+
+<section class="py-16 bg-transparent scroll-anim">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl font-bold mb-6 text-center">KEGIATAN HARIAN</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-center shadow-lg rounded-xl overflow-hidden">
+        <thead>
+          <tr>
+            <th class="border px-4 py-2">No</th>
+            <th class="border px-4 py-2">Kegiatan</th>
+            <th class="border px-4 py-2">Waktu</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white/10">
+          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">1</td><td class="border px-4 py-2">kegiatan 1</td><td class="border px-4 py-2">Jan 2025</td></tr>
+          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">2</td><td class="border px-4 py-2">kegiatan 2</td><td class="border px-4 py-2">Feb 2025</td></tr>
+          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">3</td><td class="border px-4 py-2">kegiatan 3</td><td class="border px-4 py-2">Mar 2025</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider scroll-anim"></div>
+
+<section class="my-12 bg-transparent scroll-anim">
+  <div class="max-w-5xl mx-auto px-6">
+    <img src="gambar panjang.jpg" alt="Section Banner" class="extended-banner h-48 shadow-lg">
+    <div class="text-center mt-4">
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider scroll-anim"></div>
+
+<section class="py-16 bg-transparent scroll-anim">
+  <div class="w-full flex flex-col items-center gap-8 px-6">
+    <h3 class="text-xl font-bold mb-6">FASILITAS</h3>
+    <div class="grid grid-cols-5 gap-8 w-full">
+      <div><img src="IMG/b1.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruangan</p></div>
+      <div><img src="IMG/b2.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Tempat Belajar</p></div>
+      <div><img src="IMG/b3.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Masjid</p></div>
+      <div><img src="IMG/b4.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Asrama</p></div>
+      <div><img src="IMG/b5.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Lapangan</p></div>
+
+      <div><img src="IMG/b6.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Perpustakaan</p></div>
+      <div><img src="IMG/b7.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kegiatan</p></div>
+      <div><img src="IMG/b8.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Santri</p></div>
+      <div><img src="IMG/b9.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Guru</p></div>
+      <div><img src="IMG/b10.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kelas</p></div>
+
+      <div><img src="IMG/b11.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruang Tamu</p></div>
+      <div><img src="IMG/b12.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Halaman</p></div>
+      <div><img src="IMG/b13.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kantin</p></div>
+      <div><img src="IMG/b14.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Perpustakaan</p></div>
+      <div><img src="IMG/b15.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kegiatan Malam</p></div>
+
+      <div><img src="IMG/b16.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Acara</p></div>
+      <div><img src="IMG/b17.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruang Guru</p></div>
+      <div><img src="IMG/b18.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Tempat Ibadah</p></div>
+      <div><img src="IMG/b19.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Perkumpulan</p></div>
+      <div><img src="IMG/b20.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Pemandangan</p></div>
+
+      <div><img src="IMG/b21.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruang Belajar</p></div>
+      <div><img src="IMG/b22.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Area Belakang</p></div>
+      <div><img src="IMG/b23.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Tempat Istirahat</p></div>
+      <div><img src="IMG/b24.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kegiatan Santri</p></div>
+      <div><img src="IMG/b25.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Lingkungan</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const marquee = document.getElementById('marquee');
+  const speed = 1;
+  function startMarquee() {
+    let pos = 0;
+    let lastTime = performance.now();
+    function step(time) {
+      const delta = time - lastTime;
+      lastTime = time;
+      pos -= speed * (delta / 16.7);
+      const first = marquee.children[0];
+      if (first.getBoundingClientRect().right < 0) {
+        marquee.appendChild(first);
+        pos += first.offsetWidth + 16;
+      }
+      marquee.style.transform = `translateX(${pos}px)`;
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('load', startMarquee);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.scroll-anim').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
