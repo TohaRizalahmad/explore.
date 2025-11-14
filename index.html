@@ -1,479 +1,229 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=1280">
-  <title>alfalah.rumbia</title>
-  <link rel="icon" type="image/png" href="Logo Browser.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Perbesar teks secara umum dengan menaikkan ukuran font root.
-       Kecuali: tabel dan caption (p.text-sm) akan di-reset supaya tidak berubah. */
-    html { font-size: 18px; } /* default 16px -> 18px, semua rem-based Tailwind jadi lebih besar */
-    body {
-      width: 1280px;
-      margin: 0 auto;
-      overflow-x: hidden;
-      overflow-y: auto;
-      background: url('Background.jpg') no-repeat center top fixed;
-      background-size: cover;
-      color: #EAEAEA;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hutan Tropis – Wonogra Island</title>
+<style>
+body {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  background: #fff;
+  color: #000;
+}
 
-    h1, h2 {
-      color: #C7F5D9;
-    }
+/* ——— Header ——— */
+header {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 90px 20px;
+}
+header h1 { font-size: 48px; margin: 0; }
+header p { font-size: 18px; margin-top: 10px; }
 
-    p, td, th {
-      color: #EAEAEA;
-    }
+/* ——— Section Layout ——— */
+section { padding: 70px 12%; }
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
 
-    /* Reset ukuran font untuk tabel (tetap kecil seperti semula) */
-    table, table th, table td {
-      font-size: 14px; /* kembalikan ke ukuran tabel yang diinginkan */
-    }
+/* ——— Background pola selang-seling ——— */
+section:nth-of-type(1) { background: #fff; color:#000; } /* Tentang */
+section:nth-of-type(2) { background: #000; color:#fff; } /* Daya Tarik */
+section:nth-of-type(3) { background: #fff; color:#000; } /* Galeri */
+section:nth-of-type(4) { background: #000; color:#fff; } /* Harga & Paket */
+section:nth-of-type(5) { background: #fff; color:#000; } /* Info tambahan */
 
-    /* Jangan ubah caption di bawah gambar (menggunakan Tailwind text-sm) */
-    p.text-sm {
-      font-size: 14px; /* pastikan caption tetap kecil */
-      line-height: 1.2;
-    }
+/* ——— Tentang ——— */
+.about { display: flex; gap: 30px; flex-wrap: wrap; }
+.about img {
+  width: 460px; height: 320px; object-fit: cover; filter: grayscale(100%);
+}
+.about-text {
+  flex: 1; min-width: 280px; font-size: 17px; line-height: 1.6;
+}
 
-    .marquee-wrap { overflow: hidden; width: 100%; position: relative; }
-    .marquee-track { display: flex; gap: 1rem; align-items: center; will-change: transform; }
+/* ——— Daya Tarik ——— */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px; margin-top: 20px;
+}
+.features div {
+  border: 1px solid currentColor;
+  padding: 28px;
+  text-align: center;
+  font-weight: 600;
+  background: transparent;
+}
 
-    .marquee-track img {
-      flex-shrink: 0;
-      width: 200px;
-      height: 200px;
-      border-radius: 12px;
-      border: 4px solid white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      object-fit: cover;
-    }
+/* ——— Galeri ——— */
+.gallery { display: flex; gap: 16px; overflow-x: auto; }
+.gallery img {
+  width: 300px; height: 200px; object-fit: cover; filter: grayscale(100%);
+}
 
-    .divider {
-      border-top: 3px solid rgba(191,225,209,0.6);
-      width: 80%;
-      margin: 3rem auto;
-    }
+/* ——— Harga ——— */
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px; margin-top: 10px;
+}
+.card {
+  border: 1px solid currentColor;
+  padding: 30px;
+  text-align: center;
+}
+.card h3 { margin: 0 0 10px; font-size: 24px; }
+.card p { font-size: 34px; margin: 10px 0; font-weight: 700; }
+button {
+  border: 1px solid currentColor;
+  background: currentColor;
+  color: inherit;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+button:hover {
+  background: transparent;
+  color: inherit;
+}
 
-    table th {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+/* ——— Brosur Tambahan ——— */
+.brochure { padding-top: 20px; }
+.brochure p, .brochure ul {
+  font-size: 17px; line-height: 1.7;
+}
+.brochure ul { padding-left: 20px; }
 
-    .scroll-anim {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* ——— Kontak ——— */
+.contact {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 70px 12%;
+}
 
-    .extended-banner {
-      width: calc(100% + 160px);
-      max-width: none;
-      margin-left: -80px;
-      margin-right: -80px;
-      display: block;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-  </style>
+/* ——— Footer ——— */
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
+  border-top: 1px solid #000;
+}
+
+/* ——— Pembesaran mobile tanpa merusak grid ——— */
+@media (max-width: 768px) {
+  body {
+    transform: scale(1.32);
+    transform-origin: top left;
+    width: 76%;
+  }
+}
+</style>
 </head>
-
 <body>
 
-<header class="relative scroll-anim">
-  <div class="w-full h-64 overflow-hidden rounded-b-3xl shadow-lg">
-    <img src="Desain tanpa judul.png" alt="Foto Sampul" class="w-full h-full object-cover opacity-90">
-  </div>
+<header>
+  <h1>Hutan Tropis</h1>
+  <p>Surga Alam Tersembunyi di Wonogra Island</p>
+  <p>Rasakan kedamaian, hirup udara murni, kembali dekat dengan alam.</p>
 </header>
 
-<div class="divider scroll-anim"></div>
-
-<section class="my-14 bg-transparent scroll-anim">
-  <div class="marquee-wrap mx-auto max-w-full">
-    <div id="marquee" class="marquee-track">
-      <img src="https://via.placeholder.com/220x220?text=1" alt="1">
-      <img src="https://via.placeholder.com/220x220?text=2" alt="2">
-      <img src="https://via.placeholder.com/220x220?text=3" alt="3">
-      <img src="https://via.placeholder.com/220x220?text=4" alt="4">
-      <img src="https://via.placeholder.com/220x220?text=5" alt="5">
-      <img src="https://via.placeholder.com/220x220?text=6" alt="6">
-      <img src="https://via.placeholder.com/220x220?text=7" alt="7">
-      <img src="https://via.placeholder.com/220x220?text=8" alt="8">
+<section>
+  <h2 class="section-title">Tentang Tempat</h2>
+  <div class="about">
+    <img src="" alt="Hutan Tropis">
+    <div class="about-text">
+      Hutan Tropis di Wonogra Island menawarkan pengalaman eksplorasi alam yang tenang dan mendalam.
+      Pepohonan ratusan tahun, udara lembap yang menyejukkan, serta suara satwa liar menciptakan suasana
+      yang tidak ditemukan di lokasi wisata modern. Cocok untuk perjalanan healing, dokumentasi alam,
+      dan penelitian lingkungan.
     </div>
   </div>
 </section>
 
-<div class="divider scroll-anim"></div>
+<section>
+  <h2 class="section-title">Daya Tarik Utama</h2>
+  <div class="features">
+    <div>Trekking Alam</div>
+    <div>Air Terjun Tersembunyi</div>
+    <div>Satwa & Flora Langka</div>
+    <div>Camping & Survival Spot</div>
+    <div>Jembatan Kanopi 30 Meter</div>
+    <div>Pemandu & Dokumentasi Eksklusif</div>
+  </div>
+</section>
 
-<section class="py-12 px-4 bg-transparent scroll-anim">
-  <div class="space-y-10 max-w-xl mx-auto">
-    <div>
-      <h2 class="text-lg font-semibold mb-2">VISI</h2>
-      <p class="leading-relaxed">Mencetak para santri sebagai kader ahlus sunnah wal jama'ah an Nahdliyah
-yang teguh dalam pinsip ilmiyah-amaliyah dan amaliyah-ilmiyah serta
-berakhlaqul karimah.</p>
+<section>
+  <h2 class="section-title">Galeri</h2>
+  <div class="gallery">
+    <img src="" alt="Galeri 1">
+    <img src="" alt="Galeri 2">
+    <img src="" alt="Galeri 3">
+    <img src="" alt="Galeri 4">
+    <img src="" alt="Galeri 5">
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Harga & Paket</h2>
+  <div class="pricing">
+    <div class="card">
+      <h3>Paket Eksplorasi</h3>
+      <p>Rp 45.000</p>
+      <span>Jelajah hutan + spot foto</span><br><br>
+      <button>Pesan</button>
     </div>
-    <div>
-      <h2 class="text-lg font-semibold mb-2">MISI</h2>
-      <p class="leading-relaxed">*Menjadikan Al Falah sebagai rujukan pengembangan keilmuan keislaman
-dan da'wah multi kultural
-*Mengembangkan pesantren secara keilmuan dan kelembagaan
-* Melakukan pencerahan kepada masyarakat melalui kegiatan ta'lim,
-tarbiyah dan ta'dib
-*Meningkatkan kompetensi lulusan pondok pesantren melalui
-pembekalan moral. skill dan penguatan di bidang ilmiyah-amaliyah dan
-amaliyah-ilmiyah.
-</p>
+    <div class="card">
+      <h3>Paket Petualang</h3>
+      <p>Rp 90.000</p>
+      <span>Trekking + air terjun + camping</span><br><br>
+      <button>Pesan</button>
     </div>
-    <div>
-      <h2 class="text-lg font-semibold mb-2">Judul Paragraf 3</h2>
-      <p class="leading-relaxed">Isi paragraf ketiga yang memberi kesan profesional dan rapi.</p>
+    <div class="card">
+      <h3>Paket Survival</h3>
+      <p>Rp 150.000</p>
+      <span>Camping + pelatihan survival + jelajah malam</span><br><br>
+      <button>Pesan</button>
     </div>
   </div>
 </section>
 
-<div class="divider scroll-anim"></div>
+<section class="brochure">
+  <h2 class="section-title">Informasi Tambahan</h2>
+  <p>Hutan Tropis Wonogra Island dirancang tidak hanya sebagai tempat wisata,
+  tetapi juga sebagai kawasan edukatif dan konservasi ekosistem. Setiap pengunjung
+  turut berkontribusi dalam pelestarian alam.</p>
 
-<section class="py-16 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6 text-left space-y-4">
-    <h2 class="text-2xl font-bold">KEGIATAN TAHUNAN</h2>
-    <p class="leading-relaxed">contoh isi dari teks nya yaitu teks asli</p>
-  </div>
+  <p>Aktivitas yang tersedia:</p>
+  <ul>
+    <li>Observasi burung langka menggunakan teropong konservasi</li>
+    <li>Workshop bertahan hidup di alam liar (pilihan opsional)</li>
+    <li>Pengamatan bintang tanpa polusi cahaya</li>
+    <li>Tur edukasi flora untuk mahasiswa & peneliti</li>
+    <li>Area santai hammock di puncak bukit</li>
+  </ul>
 
-  <div class="overflow-hidden mt-8 px-6">
-    <div class="scroll-track flex gap-4">
-      <img src="IMG/IMG 1.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/IMG 2.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/IMG 3.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/IMG 4.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-    </div>
-  </div>
+  <p>Keamanan pengunjung menjadi prioritas, semua perjalanan didampingi ranger lokal
+  yang berpengalaman dan pelatihan dasar diberikan sebelum petualangan dimulai.</p>
 </section>
 
-<div class="divider scroll-anim"></div>
+<div class="contact">
+  <h2 class="section-title" style="color:#fff;">Lokasi & Kontak</h2>
+  <p>Wonogra Island – Area Hutan Tropis</p>
+  <p>Jam Operasional: 07.00 – 22.00</p>
+  <p>Telepon: +62 812 0000 0000</p>
+  <p>Email: info@wonograisland.com</p>
+</div>
 
-<section class="py-16 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6 text-left space-y-4">
-    <h2 class="text-2xl font-bold">KUGIATAN BULANAN</h2>
-    <p class="leading-relaxed">contoh isi dari teks nya yaitu teks asli</p>
-  </div>
-
-  <div class="overflow-hidden mt-8 px-6">
-    <div class="scroll-track flex gap-4">
-      <img src="IMG/IMG 1.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/IMG 2.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/IMG 3.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/IMG 4.jpeg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-    </div>
-  </div>
-</section>
-
-<div class="divider scroll-anim"></div>
-
-<section class="py-16 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6 text-left space-y-4">
-    <h2 class="text-2xl font-bold">KEGIATAN MINGGUAN</h2>
-    <p class="leading-relaxed">
-      Bagian ini menampilkan 9 foto dalam grid yang kini lebih ramping  
-      dan selaras dengan ukuran bagian sebelumnya.
-    </p>
-  </div>
-
-  <div class="overflow-hidden mt-8 px-6">
-    <div class="scroll-track flex gap-4">
-      <img src="foto.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p2.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p3.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p4.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p5.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p6.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p7.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p8.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-      <img src="IMG/p9.jpg" class="w-60 h-40 object-cover rounded-xl shadow-md">
-    </div>
-  </div>
-</section>
-
-<div class="divider scroll-anim"></div>
-
-<section class="py-16 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-2xl font-bold mb-6 text-center">KEGIATAN HARIAN</h2>
-    <div class="overflow-x-auto">
-      <table class="w-full border-collapse text-center shadow-lg rounded-xl overflow-hidden">
-        <thead>
-          <tr>
-            <th class="border px-4 py-2">No</th>
-            <th class="border px-4 py-2">Kegiatan</th>
-            <th class="border px-4 py-2">Waktu</th>
-          </tr>
-        </thead>
-        <tbody class="bg-white/10">
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">1</td><td class="border px-4 py-2">kegiatan 1</td><td class="border px-4 py-2">Jan 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">2</td><td class="border px-4 py-2">kegiatan 2</td><td class="border px-4 py-2">Feb 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">3</td><td class="border px-4 py-2">kegiatan 3</td><td class="border px-4 py-2">Mar 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">4</td><td class="border px-4 py-2">kegiatan 4</td><td class="border px-4 py-2">Jan 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">5</td><td class="border px-4 py-2">kegiatan 5</td><td class="border px-4 py-2">Feb 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">6</td><td class="border px-4 py-2">kegiatan 6</td><td class="border px-4 py-2">Mar 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">7</td><td class="border px-4 py-2">kegiatan 7</td><td class="border px-4 py-2">Jan 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">8</td><td class="border px-4 py-2">kegiatan 8</td><td class="border px-4 py-2">Feb 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">9</td><td class="border px-4 py-2">kegiatan 9</td><td class="border px-4 py-2">Mar 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">10</td><td class="border px-4 py-2">kegiatan 10</td><td class="border px-4 py-2">Jan 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">11</td><td class="border px-4 py-2">kegiatan 11</td><td class="border px-4 py-2">Feb 2025</td></tr>
-          <tr class="hover:bg-white/20 transition"><td class="border px-4 py-2">12</td><td class="border px-4 py-2">kegiatan 12</td><td class="border px-4 py-2">Mar 2025</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<div class="divider scroll-anim"></div>
-
-<section class="my-12 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6">
-    <img src="gambar panjang.jpg" alt="Section Banner" class="extended-banner h-48 shadow-lg">
-    <div class="text-center mt-4">
-      </p>
-    </div>
-  </div>
-</section>
-
-<div class="divider scroll-anim"></div>
-
-<section class="py-16 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-2xl font-bold mb-6 text-center">FASILITAS</h2>
-    <div class="grid grid-cols-5 gap-8 w-full">
-      <div><img src="IMG/b1.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruangan</p></div>
-      <div><img src="IMG/b2.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Tempat Belajar</p></div>
-      <div><img src="IMG/b3.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Masjid</p></div>
-      <div><img src="IMG/b4.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Asrama</p></div>
-      <div><img src="IMG/b5.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Lapangan</p></div>
-
-      <div><img src="IMG/b6.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Perpustakaan</p></div>
-      <div><img src="IMG/b7.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kegiatan</p></div>
-      <div><img src="IMG/b8.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Santri</p></div>
-      <div><img src="IMG/b9.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Guru</p></div>
-      <div><img src="IMG/b10.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kelas</p></div>
-
-      <div><img src="IMG/b11.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruang Tamu</p></div>
-      <div><img src="IMG/b12.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Halaman</p></div>
-      <div><img src="IMG/b13.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kantin</p></div>
-      <div><img src="IMG/b14.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Perpustakaan</p></div>
-      <div><img src="IMG/b15.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kegiatan Malam</p></div>
-
-      <div><img src="IMG/b16.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Acara</p></div>
-      <div><img src="IMG/b17.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruang Guru</p></div>
-      <div><img src="IMG/b18.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Tempat Ibadah</p></div>
-      <div><img src="IMG/b19.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Perkumpulan</p></div>
-      <div><img src="IMG/b20.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Pemandangan</p></div>
-
-      <div><img src="IMG/b21.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Ruang Belajar</p></div>
-      <div><img src="IMG/b22.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Area Belakang</p></div>
-      <div><img src="IMG/b23.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Tempat Istirahat</p></div>
-      <div><img src="IMG/b24.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Kegiatan Santri</p></div>
-      <div><img src="IMG/b25.jpg" class="rounded-xl w-full h-32 object-cover"><p class="mt-2 text-sm">Lingkungan</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider scroll-anim"></div>
-
-<div class="scroll-anim" style="border-top:3px solid rgba(191,225,209,0.6); width:40%; margin:0.5rem auto;"></div>
-
-<div class="divider scroll-anim"></div>
-
-<section class="py-16 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-2xl font-bold mb-6 text-center">KURIKULUM</h2>
-
-    <!-- Baris pertama: 3 kolom -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-white mb-10">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">Kurikulum Agama</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Tafsir & Hadis</li>
-          <li>Fiqih dan Ushul Fiqih</li>
-          <li>Akidah Akhlak</li>
-          <li>Sejarah Kebudayaan Islam</li>
-          <li>Bahasa Arab & Nahwu Shorof</li>
-        </ul>
-      </div>
-
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">Kurikulum Umum</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Matematika dan Ilmu Alam</li>
-          <li>Bahasa Indonesia</li>
-          <li>Bahasa Inggris</li>
-          <li>Ilmu Sosial & Kewarganegaraan</li>
-          <li>Teknologi Informasi Dasar</li>
-        </ul>
-      </div>
-
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">Kegiatan Penunjang</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Kegiatan Ekstrakurikuler</li>
-          <li>Pelatihan Keterampilan Santri</li>
-          <li>Program Tahfidzul Qur’an</li>
-          <li>Latihan Dakwah dan Kepemimpinan</li>
-          <li>Praktik Pengabdian Masyarakat</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Baris kedua: 2 kolom -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left text-white mb-10">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">Kurikulum Tambahan</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Bahasa Asing (Arab & Inggris Lanjutan)</li>
-          <li>Ilmu Komputer Terapan</li>
-          <li>Manajemen dan Kewirausahaan</li>
-          <li>Pelatihan Multimedia dan Desain</li>
-        </ul>
-      </div>
-
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">Program Khusus</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Pengembangan Karakter Santri</li>
-          <li>Pembinaan Kepemimpinan</li>
-          <li>Kelas Tahfidz Intensif</li>
-          <li>Kegiatan Sosial dan Dakwah</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Baris ketiga: 1 kolom -->
-    <div class="grid grid-cols-1 text-left text-white mb-10">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">Program Unggulan</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Riset dan Inovasi Santri</li>
-          <li>Kolaborasi Antar Pesantren</li>
-          <li>Pendidikan Karakter dan Kepemimpinan</li>
-          <li>Pengembangan Kompetensi Global</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Baris keempat: 1 kolom -->
-    <div class="grid grid-cols-1 text-left text-white">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">Program Pengembangan Lanjutan</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Kerjasama Pendidikan dengan Lembaga Luar</li>
-          <li>Pendidikan Wirausaha Modern</li>
-          <li>Pelatihan Digitalisasi Pesantren</li>
-          <li>Peningkatan Kompetensi Guru dan Santri</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="scroll-anim" style="border-top:3px solid rgba(191,225,209,0.6); width:40%; margin:0.5rem auto;"></div>
-
-<section class="py-16 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6">
-
- <!-- Baris keempat: 1 kolom -->
-    <div class="grid grid-cols-1 text-left text-white">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-3 text-[#C7F5D9]">tentang kurikulum</h3>
-        <ul class="list-disc ml-5 space-y-1">
-          <li>Kerjasama dengan Lembaga Luar Pendidikan</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider scroll-anim"></div>
-
-<section class="my-12 bg-transparent scroll-anim">
-  <div class="max-w-5xl mx-auto px-6">
-    <img src="gambar panjang.jpg" alt="Section Banner" class="extended-banner h-48 shadow-lg">
-    <div class="text-center mt-4">
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="py-16 bg-transparent scroll-anim">
-    <div class="grid grid-cols-5 gap-8 w-full">
-      <div><img src="IMG/b1.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b2.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b3.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b4.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b5.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-
-      <div><img src="IMG/b6.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b7.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b8.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b9.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-      <div><img src="IMG/b10.jpg" class="rounded-xl w-full h-32 object-cover"></div>
-    </div>
-  </div>
-</section>
-
-  <h2 class="text-2xl font-bold">KEGIATAN TAHUNAN</h2>
-      <p class="leading-relaxed">contoh isi dari teks nya yaitu teks asli</p>
-<div class="scroll-anim" style="border-top:3px solid rgba(191,225,209,0.6); width:40%; margin:0.5rem auto;"></div>
-
-<script>
-  const marquee = document.getElementById('marquee');
-  const speed = 1;
-  function startMarquee() {
-    let pos = 0;
-    let lastTime = performance.now();
-    function step(time) {
-      const delta = time - lastTime;
-      lastTime = time;
-      pos -= speed * (delta / 16.7);
-      const first = marquee.children[0];
-      if (first.getBoundingClientRect().right < 0) {
-        marquee.appendChild(first);
-        pos += first.offsetWidth + 16;
-      }
-      marquee.style.transform = `translateX(${pos}px)`;
-      requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  window.addEventListener('load', startMarquee);
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('show');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('.scroll-anim').forEach(el => observer.observe(el));
-  const autoTracks = document.querySelectorAll('.scroll-track');
-autoTracks.forEach(track => {
-  let pos = 0;
-  function run() {
-    pos -= 0.4; // kecepatan scroll otomatis
-    track.style.transform = `translateX(${pos}px)`;
-    if (Math.abs(pos) > track.scrollWidth / 2) pos = 0;
-    requestAnimationFrame(run);
-  }
-  run();
-});
-</script>
+<footer>
+  © 2025 Hutan Tropis – Wonogra Island
+</footer>
 
 </body>
 </html>
