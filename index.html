@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Hutan Tropis – Wonogra Island</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+
 <style>
+/* ========== BASE / RESET ========== */
+:root{
+  --bg-light: #fff;
+  --bg-dark: #000;
+  --accent: #000;
+  --muted: #777;
+  --transition-fast: 0.45s;
+  --transition-med: 0.9s;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
 body {
   margin: 0;
   font-family: Montserrat, sans-serif;
-  background: #fff;
-  color: #000;
+  background: var(--bg-light);
+  color: var(--accent);
   scroll-behavior: smooth;
+  -webkit-font-smoothing:antialiased;
 }
 
-/* ————————— HEADER (PARALLAX) ————————— */
+/* ========== HEADER ========== */
 header {
-  background: #000;
-  color: #fff;
+  background: var(--bg-dark);
+  color: var(--bg-light);
   text-align: center;
   padding: 90px 20px;
   position: relative;
@@ -26,166 +40,152 @@ header {
 header h1 { font-size: 48px; margin: 0; }
 header p { font-size: 18px; margin-top: 10px; }
 
-/* Parallax floating text */
-header h1, header p {
-  position: relative;
-  z-index: 2;
+/* subtle cinematic overlay */
+header::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0));
+  pointer-events:none;
 }
 
-/* ————————— SECTION ————————— */
-section { padding: 70px 12%; }
-.section-title {
-  font-size: 34px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
+/* ========== SECTION & ALTERNATING BACKGROUND ========== */
+section { padding: 70px 8%; }
+section:nth-of-type(odd) { background: var(--bg-light); color: var(--accent); }
+section:nth-of-type(even) { background: var(--bg-dark); color: var(--bg-light); }
+.section-title { font-size: 34px; font-weight:700; margin-bottom:20px; }
 
-/* Background selang-seling */
-section:nth-of-type(1) { background: #fff; color:#000; }
-section:nth-of-type(2) { background: #000; color:#fff; }
-section:nth-of-type(3) { background: #fff; color:#000; }
-section:nth-of-type(4) { background: #000; color:#fff; }
-section:nth-of-type(5) { background: #fff; color:#000; }
+/* ensure readability on dark */
+section:nth-of-type(even) p, section:nth-of-type(even) li, section:nth-of-type(even) .about-text { color: #eee; }
 
-/* ————————— TENTANG ————————— */
-.about { 
-  display: flex; gap: 30px; flex-wrap: wrap; 
-}
-.about img {
-  width: 460px; height: 320px; object-fit: cover; filter: grayscale(100%);
-}
-.about-text {
-  flex: 1; min-width: 280px; font-size: 17px; line-height: 1.6;
-}
+/* ========== ORIGINAL LAYOUT (KEPRESERVASI) ========== */
+.about { display:flex; gap:30px; flex-wrap:wrap; align-items:center; }
+.about img { width:460px; height:320px; object-fit:cover; filter:grayscale(100%); display:block; border-radius:6px; }
+.about-text { flex:1; min-width:280px; font-size:17px; line-height:1.6; }
 
-/* ————————— DAYA TARIK ————————— */
 .features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px; margin-top: 20px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:25px; margin-top:20px;
 }
 .features div {
-  border: 1px solid currentColor;
-  padding: 28px;
-  text-align: center;
-  font-weight: 600;
-  background: transparent;
+  border:1px solid currentColor; padding:28px; text-align:center; font-weight:600; background:transparent; border-radius:8px;
 }
 
-/* ————————— GALERI ————————— */
-.gallery { display: flex; gap: 16px; overflow-x: auto; }
-.gallery img {
-  width: 300px; height: 200px; object-fit: cover; filter: grayscale(100%);
+/* original horizontal gallery */
+.gallery { display:flex; gap:16px; overflow-x:auto; padding-bottom:8px; -webkit-overflow-scrolling:touch; }
+.gallery img { width:300px; height:200px; object-fit:cover; filter:grayscale(100%); display:block; border-radius:8px; }
+
+/* pricing/cards */
+.pricing { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:30px; margin-top:10px; }
+.card { border:1px solid currentColor; padding:30px; text-align:center; border-radius:10px; }
+.card h3{ margin:0 0 10px; font-size:24px } 
+.card p{ font-size:34px; margin:10px 0; font-weight:700 }
+
+/* button */
+button { border:1px solid currentColor; background:currentColor; color:inherit; padding:12px 20px; cursor:pointer; font-size:15px; border-radius:8px; }
+button:hover { background: transparent; color: inherit; }
+
+/* brochure/contact/footer */
+.brochure p, .brochure ul { font-size:17px; line-height:1.7; }
+.brochure ul { padding-left:20px; }
+.contact { background: var(--bg-dark); color:var(--bg-light); text-align:center; padding:70px 8%; }
+footer { background: var(--bg-light); text-align:center; padding:18px; font-size:14px; border-top:1px solid var(--accent); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px){
+  .about img{ width:100%; height:260px; }
+  section{ padding:50px 6%; }
+}
+@media (max-width: 768px){
+  body{ transform: none; width:100%; }
+  .features{ grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
+  .pricing{ grid-template-columns: 1fr; }
 }
 
-/* ————————— HARGA ————————— */
-.pricing {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px; margin-top: 10px;
-}
-.card {
-  border: 1px solid currentColor;
-  padding: 30px;
-  text-align: center;
-}
-.card h3 { margin: 0 0 10px; font-size: 24px; }
-.card p { font-size: 34px; margin: 10px 0; font-weight: 700; }
-
-button {
-  border: 1px solid currentColor;
-  background: currentColor;
-  color: inherit;
-  padding: 12px 20px;
-  cursor: pointer;
-  font-size: 15px;
-}
-button:hover {
-  background: transparent;
-  color: inherit;
-}
-
-/* ————————— BROCHURE ————————— */
-.brochure { padding-top: 20px; }
-.brochure p, .brochure ul {
-  font-size: 17px; line-height: 1.7;
-}
-.brochure ul { padding-left: 20px; }
-
-/* ————————— KONTAK ————————— */
-.contact {
-  background: #000;
-  color: #fff;
-  text-align: center;
-  padding: 70px 12%;
-}
-
-/* ————————— FOOTER ————————— */
-footer {
-  background: #fff;
-  text-align: center;
-  padding: 18px;
-  font-size: 14px;
-  border-top: 1px solid #000;
-}
-
-/* ————————— RESPONSIVE FIX ————————— */
-@media (max-width: 768px) {
-  body {
-    transform: scale(1.32);
-    transform-origin: top left;
-    width: 76%;
-  }
-}
-
-/* ————————— ANIMASI CINEMATIC ————————— */
-.fade-up, .fade-left, .fade-right, .zoom-in, .slide-up {
+/* ========== CINEMATIC ANIMATIONS (generic) ========== */
+.fade-up, .fade-left, .fade-right, .zoom-in, .slide-up, .fade-down {
   opacity: 0;
-  transform: translateY(60px);
-  transition: 1s ease-out;
+  transition: transform var(--transition-med) ease-out, opacity var(--transition-med) ease-out;
+  will-change: transform, opacity;
 }
+.fade-up{ transform: translateY(40px) }
+.fade-down{ transform: translateY(-30px) }
+.fade-left{ transform: translateX(-40px) }
+.fade-right{ transform: translateX(40px) }
+.slide-up{ transform: translateY(60px) }
+.zoom-in{ transform: scale(0.88) }
 
-.fade-left { transform: translateX(-60px); }
-.fade-right { transform: translateX(60px); }
+.show{ opacity:1; transform: none !important; }
 
-/* Zoom untuk galeri — aman untuk scroll horizontal */
-.gallery img.zoom-in {
-  opacity: 0;
-  transform: scale(0.85);
-  transition: 0.8s ease-out;
+/* delay helpers */
+.delay-1{ transition-delay:0.08s } .delay-2{ transition-delay:0.16s } .delay-3{ transition-delay:0.28s }
+
+/* ========== MEGA GALLERY (E) STYLES ========== */
+/* container polish */
+.gallery-section { margin-top: 6px; }
+
+/* GRID GALLERY */
+.grid-gallery { display:grid; grid-template-columns: repeat(3,1fr); gap:14px; }
+.grid-gallery img{ width:100%; height:220px; object-fit:cover; filter:grayscale(80%); border-radius:8px; transition: transform 0.6s ease, filter 0.6s ease; }
+.grid-gallery img:hover{ transform: translateY(-6px) scale(1.02); filter:grayscale(0%); }
+
+/* MASONRY */
+.masonry { column-count:3; column-gap:12px; }
+.masonry .m-item{ break-inside: avoid; margin-bottom:12px; overflow:hidden; border-radius:8px; transition: transform 0.5s ease, filter 0.5s ease; }
+.masonry img{ width:100%; height:auto; object-fit:cover; display:block; filter:grayscale(70%); }
+.masonry .m-item:hover img{ transform: translateY(-6px); filter:grayscale(0%) }
+
+/* CAROUSEL */
+.carousel { position:relative; overflow:hidden; width:100%; height:420px; border-radius:10px; }
+.carousel-track{ display:flex; transition: transform 0.8s cubic-bezier(.22,.9,.3,1); height:100% }
+.carousel-item{ min-width:100%; height:100%; flex-shrink:0; position:relative }
+.carousel-item img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(60%); }
+.carousel-controls{ position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); display:flex; justify-content:space-between; padding:0 12px; pointer-events:none; }
+.carousel-button{ background: rgba(0,0,0,0.45); color:#fff; border:none; padding:10px 12px; cursor:pointer; pointer-events:auto; border-radius:6px }
+
+/* PARALLAX GRID */
+.parallax-grid { display:grid; grid-template-columns: 1.4fr 1fr; gap:12px; align-items:stretch; }
+.parallax-grid .hero{ height:420px; overflow:hidden; position:relative; border-radius:10px; }
+.parallax-grid .tiles{ display:grid; grid-template-rows: 1fr 1fr; gap:12px; }
+.parallax-grid img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(60%); border-radius:8px; }
+
+/* SUPER COMBO */
+.super-combo{ display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:12px; }
+.super-combo img{ width:100%; height:140px; object-fit:cover; filter:grayscale(70%); border-radius:8px; transition: transform 0.5s ease, filter 0.5s ease; }
+.super-combo img:hover{ transform: translateY(-6px); filter:grayscale(0%) }
+
+/* lightbox (fullscreen) */
+.lightbox {
+  position: fixed; inset: 0; display: none; align-items:center; justify-content:center;
+  background: rgba(0,0,0,0.9); z-index:9999; padding:20px;
 }
+.lightbox.open { display:flex; }
+.lightbox img { max-width: 95%; max-height: 92%; border-radius:8px; box-shadow: 0 18px 60px rgba(0,0,0,0.6); }
+.lightbox .close { position:absolute; top:18px; right:18px; background:rgba(255,255,255,0.06); color:#fff; border:0; padding:8px 10px; cursor:pointer; border-radius:6px; font-size:18px }
+.lightbox .nav { position:absolute; top:50%; transform:translateY(-50%); color:#fff; font-size:28px; background:transparent; border:0; cursor:pointer; padding:12px; }
 
-.gallery img.zoom-in.show {
-  opacity: 1;
-  transform: scale(1);
-}
+/* ensure .gallery horizontal images not parallax-translated */
+.gallery .parallax { transform: none !important; }
 
-.slide-up { transform: translateY(80px); }
-
-.show {
-  opacity: 1;
-  transform: translateX(0) translateY(0) scale(1);
-}
-
-/* Parallax effect */
-.parallax {
-  transform: translateY(var(--scroll, 0px));
-  transition: transform 0.1s linear;
-}
+/* small responsive tweaks */
+@media (max-width:1000px){ .grid-gallery{ grid-template-columns: repeat(2,1fr) } .masonry{ column-count:2 } }
+@media (max-width:600px){ .grid-gallery{ grid-template-columns:1fr } .masonry{ column-count:1 } .parallax-grid{ grid-template-columns:1fr } .carousel{ height:260px } .parallax-grid .hero{ height:260px } }
 </style>
 </head>
 <body>
 
+<!-- ========== HEADER (preserved) ========== -->
 <header class="fade-down parallax">
   <h1>Hutan Tropis</h1>
   <p>Surga Alam Tersembunyi di Wonogra Island</p>
   <p>Rasakan kedamaian, hirup udara murni, kembali dekat dengan alam.</p>
 </header>
 
+<!-- ========== ORIGINAL: TENTANG (preserved) ========== -->
 <section class="fade-up">
   <h2 class="section-title">Tentang Tempat</h2>
   <div class="about">
-    <img src="" alt="Hutan Tropis" class="fade-right parallax">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Hutan Tropis" class="fade-right parallax" loading="lazy">
     <div class="about-text fade-left">
       Hutan Tropis di Wonogra Island menawarkan pengalaman eksplorasi alam yang tenang dan mendalam.
       Pepohonan ratusan tahun, udara lembap yang menyejukkan, serta suara satwa liar menciptakan suasana
@@ -195,31 +195,34 @@ footer {
   </div>
 </section>
 
+<!-- ========== ORIGINAL: DAYA TARIK (preserved) ========== -->
 <section class="fade-up">
   <h2 class="section-title fade-up">Daya Tarik Utama</h2>
   <div class="features">
-    <div class="fade-up">Trekking Alam</div>
-    <div class="fade-up">Air Terjun Tersembunyi</div>
-    <div class="fade-up">Satwa & Flora Langka</div>
-    <div class="fade-up">Camping & Survival Spot</div>
-    <div class="fade-up">Jembatan Kanopi 30 Meter</div>
-    <div class="fade-up">Pemandu & Dokumentasi Eksklusif</div>
+    <div class="fade-up delay-1">Trekking Alam</div>
+    <div class="fade-up delay-2">Air Terjun Tersembunyi</div>
+    <div class="fade-up delay-3">Satwa & Flora Langka</div>
+    <div class="fade-up delay-1">Camping & Survival Spot</div>
+    <div class="fade-up delay-2">Jembatan Kanopi 30 Meter</div>
+    <div class="fade-up delay-3">Pemandu & Dokumentasi Eksklusif</div>
   </div>
 </section>
 
+<!-- ========== ORIGINAL: HORIZONTAL GALLERY (preserved but fixed) ========== -->
 <section class="fade-up">
-  <h2 class="section-title fade-up">Galeri</h2>
-  <div class="gallery">
-    <img src="IMG/IMG 1.jpeg" alt="Galeri 1" class="zoom-in parallax">
-    <img src="IMG/IMG 2.jpeg" alt="Galeri 2" class="zoom-in parallax">
-    <img src="IMG/IMG 3.jpeg" alt="Galeri 3" class="zoom-in parallax">
-    <img src="" alt="Galeri 4" class="zoom-in parallax">
-    <img src="" alt="Galeri 5" class="zoom-in parallax">
+  <h2 class="section-title">Galeri</h2>
+  <div class="gallery" aria-label="Galeri foto">
+    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop" alt="Galeri 1" class="zoom-in" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Galeri 2" class="zoom-in" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="Galeri 3" class="zoom-in" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Galeri 4" class="zoom-in" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Galeri 5" class="zoom-in" loading="lazy">
   </div>
 </section>
 
+<!-- ========== ORIGINAL: HARGA & PAKET (preserved) ========== -->
 <section class="fade-up">
-  <h2 class="section-title fade-up">Harga & Paket</h2>
+  <h2 class="section-title">Harga & Paket</h2>
   <div class="pricing">
     <div class="card slide-up">
       <h3>Paket Eksplorasi</h3>
@@ -242,6 +245,7 @@ footer {
   </div>
 </section>
 
+<!-- ========== ORIGINAL: BROCHURE (preserved) ========== -->
 <section class="brochure fade-left">
   <h2 class="section-title">Informasi Tambahan</h2>
   <p>Hutan Tropis Wonogra Island dirancang tidak hanya sebagai tempat wisata,
@@ -261,6 +265,75 @@ footer {
   yang berpengalaman dan pelatihan dasar diberikan sebelum petualangan dimulai.</p>
 </section>
 
+<!-- ========== MEGA GALLERY SECTIONS (E) ========== -->
+<!-- Grid -->
+<section class="gallery-section fade-up">
+  <h2 class="section-title">Galeri Grid Profesional</h2>
+  <div class="grid-gallery">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Grid 1" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Grid 2" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Grid 3" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="Grid 4" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1200&auto=format&fit=crop" alt="Grid 5" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Grid 6" loading="lazy">
+  </div>
+</section>
+
+<!-- Masonry -->
+<section class="gallery-section fade-up">
+  <h2 class="section-title">Galeri Masonry (Pinterest Style)</h2>
+  <div class="masonry">
+    <div class="m-item"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="M1" loading="lazy"></div>
+    <div class="m-item"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=900&auto=format&fit=crop" alt="M2" loading="lazy"></div>
+    <div class="m-item"><img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=900&auto=format&fit=crop" alt="M3" loading="lazy"></div>
+    <div class="m-item"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=900&auto=format&fit=crop" alt="M4" loading="lazy"></div>
+    <div class="m-item"><img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=900&auto=format&fit=crop" alt="M5" loading="lazy"></div>
+    <div class="m-item"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop" alt="M6" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- Carousel -->
+<section class="gallery-section fade-up">
+  <h2 class="section-title">Carousel Cinematic</h2>
+  <div class="carousel" aria-roledescription="carousel">
+    <div class="carousel-track">
+      <div class="carousel-item"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1400&auto=format&fit=crop" alt="Carousel 1" loading="lazy"></div>
+      <div class="carousel-item"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop" alt="Carousel 2" loading="lazy"></div>
+      <div class="carousel-item"><img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1400&auto=format&fit=crop" alt="Carousel 3" loading="lazy"></div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-button" id="prevBtn" aria-label="Previous">‹</button>
+      <button class="carousel-button" id="nextBtn" aria-label="Next">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- Parallax Grid -->
+<section class="gallery-section fade-up">
+  <h2 class="section-title">Parallax Grid Premium</h2>
+  <div class="parallax-grid">
+    <div class="hero parallax"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400&auto=format&fit=crop" alt="Hero Large" loading="lazy"></div>
+    <div class="tiles">
+      <div class="tile parallax"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=900&auto=format&fit=crop" alt="Tile 1" loading="lazy"></div>
+      <div class="tile parallax"><img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=900&auto=format&fit=crop" alt="Tile 2" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Super Combo -->
+<section class="gallery-section fade-up">
+  <h2 class="section-title">Super Combo Gallery</h2>
+  <div class="super-combo">
+    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=800&auto=format&fit=crop" alt="Combo 1" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="Combo 2" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=800&auto=format&fit=crop" alt="Combo 3" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=800&auto=format&fit=crop" alt="Combo 4" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" alt="Combo 5" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop" alt="Combo 6" loading="lazy">
+  </div>
+</section>
+
+<!-- ========== CONTACT & FOOTER (preserved) ========== -->
 <div class="contact fade-up">
   <h2 class="section-title" style="color:#fff;">Lokasi & Kontak</h2>
   <p>Wonogra Island – Area Hutan Tropis</p>
@@ -272,31 +345,133 @@ footer {
 <footer class="fade-up">
   © 2025 Hutan Tropis – Wonogra Island
 </footer>
+
+<!-- ========== LIGHTBOX ========== -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+  <button class="close" id="lightboxClose" aria-label="Tutup">✕</button>
+  <button class="nav" id="lightPrev" aria-label="Sebelumnya" style="left:12px">‹</button>
+  <img id="lightboxImg" src="" alt="Gambar besar">
+  <button class="nav" id="lightNext" aria-label="Berikutnya" style="right:12px">›</button>
+</div>
+
+<!-- ========== SCRIPTS (animasi, parallax, carousel, lightbox) ========== -->
 <script>
-// ————————— ANIMASI SCROLL (Intersection Observer) ————————— //
-const observer = new IntersectionObserver(entries => {
+/* ---------- Intersection Observer untuk animasi ---------- */
+const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
+    if(entry.isIntersecting){
+      // show parent section or gallery
+      entry.target.classList.add('show');
+      // stagger children for gallery-like blocks
+      if(entry.target.matches('.grid-gallery') || entry.target.matches('.masonry') || entry.target.matches('.super-combo')){
+        const children = entry.target.querySelectorAll('img, .m-item');
+        children.forEach((c, i) => setTimeout(()=> c.classList.add('show'), i * 80));
+      }
+      // reveal gallery horizontal items individually nicely
+      if(entry.target.matches('.gallery')){
+        entry.target.querySelectorAll('img').forEach((img, i) => setTimeout(()=> img.classList.add('show'), i*80));
+      }
+      obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.2 });
+}, { threshold: 0.18 });
 
-// TARGET semua kelas animasi
-document.querySelectorAll(
-  ".fade-up, .fade-left, .fade-right, .zoom-in, .slide-up, .fade-down"
-).forEach(el => observer.observe(el));
+document.querySelectorAll('section, .gallery, .grid-gallery, .masonry, .carousel, .parallax-grid, .super-combo, .about img').forEach(el => observer.observe(el));
+document.querySelectorAll('.gallery img, .grid-gallery img, .masonry .m-item img, .super-combo img').forEach(img => observer.observe(img));
 
-
-// ————————— PARALLAX EFFECT ————————— //
-window.addEventListener("scroll", () => {
+/* ---------- Parallax (subtle, only for .parallax elements) ---------- */
+window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
+  document.querySelectorAll('.parallax').forEach(el => {
+    // compute offset relative to viewport center
+    const speed = 0.12;
+    const rect = el.getBoundingClientRect();
+    const offset = (rect.top - window.innerHeight / 2) * speed * -1;
+    const limited = Math.max(Math.min(offset, 70), -70);
+    el.style.transform = `translateY(${limited}px)`;
+  });
+});
 
-  // elemen dengan parallax
-  document.querySelectorAll(".parallax").forEach(el => {
-    const speed = 0.15; // semakin besar = semakin dramatis
-    el.style.setProperty("--scroll", `${scrollY * speed}px`);
+/* ---------- Carousel logic ---------- */
+(function(){
+  const track = document.querySelector('.carousel-track');
+  if(!track) return;
+  const items = Array.from(track.children);
+  let idx = 0, total = items.length;
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function goTo(i){ idx = (i + total) % total; track.style.transform = `translateX(-${idx * 100}%)`; }
+  nextBtn && nextBtn.addEventListener('click', ()=> { goTo(idx+1); reset(); });
+  prevBtn && prevBtn.addEventListener('click', ()=> { goTo(idx-1); reset(); });
+
+  let autoplay = setInterval(()=> goTo(idx+1), 4500);
+  function reset(){ clearInterval(autoplay); autoplay = setInterval(()=> goTo(idx+1), 4500); }
+
+  const carousel = document.querySelector('.carousel');
+  carousel.addEventListener('mouseenter', ()=> clearInterval(autoplay));
+  carousel.addEventListener('mouseleave', ()=> reset());
+  goTo(0);
+
+  // keyboard
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowLeft') prevBtn && prevBtn.click();
+    if(e.key === 'ArrowRight') nextBtn && nextBtn.click();
+  });
+})();
+
+/* ---------- Lightbox (click on any gallery image) ---------- */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightPrev = document.getElementById('lightPrev');
+const lightNext = document.getElementById('lightNext');
+
+// Gather all gallery images across mega galleries
+const gallerySelectors = '.gallery img, .grid-gallery img, .masonry img, .carousel-item img, .parallax-grid img, .super-combo img';
+const galleryImgs = Array.from(document.querySelectorAll(gallerySelectors));
+let currentIndex = 0;
+
+galleryImgs.forEach((img, i) => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', ()=> openLightbox(i));
+});
+
+function openLightbox(idx){
+  currentIndex = idx;
+  lightboxImg.src = galleryImgs[currentIndex].src;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function showPrev(){ currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length; lightboxImg.src = galleryImgs[currentIndex].src; }
+function showNext(){ currentIndex = (currentIndex + 1) % galleryImgs.length; lightboxImg.src = galleryImgs[currentIndex].src; }
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightPrev.addEventListener('click', showPrev);
+lightNext.addEventListener('click', showNext);
+
+// keyboard navigation for lightbox
+document.addEventListener('keydown', (e)=>{
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') showPrev();
+  if(e.key === 'ArrowRight') showNext();
+});
+
+// click outside image to close
+lightbox.addEventListener('click', (e)=>{
+  if(e.target === lightbox) closeLightbox();
+});
+
+/* ---------- show horizontal gallery images already visible on load ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.gallery img.zoom-in').forEach(img => {
+    const rect = img.getBoundingClientRect();
+    if(rect.top < window.innerHeight && rect.bottom >= 0) img.classList.add('show');
   });
 });
 </script>
