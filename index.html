@@ -8,6 +8,61 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
+  /* ====== HERO HEADER FULLSCREEN ====== */
+.hero-header {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full layar */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-header .hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* foto FULL kanan & kiri */
+  z-index: -1;
+}
+
+.hero-header .hero-content {
+  color: #fff;
+  padding-left: 8%;
+  max-width: 600px;
+  text-align: left;   /* teks kiri */
+  text-shadow: 0px 3px 10px rgba(0,0,0,0.65);
+}
+
+.hero-header h1 {
+  font-size: 64px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.hero-header p {
+  font-size: 20px;
+  margin-top: 10px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Overlay gelap supaya teks lebih terbaca */
+.hero-header::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.2));
+  z-index:-1;
+}
+
+/* Mobile friendly */
+@media (max-width: 768px){
+  .hero-header h1 { font-size: 40px; }
+  .hero-header p { font-size: 16px; }
+}
 /* ========== BASE / RESET ========== */
 :root{
   --bg-light: #fff;
@@ -48,13 +103,13 @@ header::before{
   pointer-events:none;
 }
 
+
 /* ========== SECTION & ALTERNATING BACKGROUND ========== */
 section { padding: 70px 8%; }
 section:nth-of-type(odd) { background: var(--bg-light); color: var(--accent); }
 section:nth-of-type(even) { background: var(--bg-dark); color: var(--bg-light); }
 .section-title { font-size: 34px; font-weight:700; margin-bottom:20px; }
 
-/* ensure readability on dark */
 section:nth-of-type(even) p, section:nth-of-type(even) li, section:nth-of-type(even) .about-text { color: #eee; }
 
 /* ========== ORIGINAL LAYOUT (KEPRESERVASI) ========== */
@@ -174,6 +229,34 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
 </head>
 <body>
 
+<!-- ========== HERO HEADER BARU FULL LAYAR ========== -->
+<header class="hero-header parallax">
+  <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop" 
+       alt="Hero Hutan Tropis" class="hero-bg">
+
+  <div class="hero-content fade-down">
+    <h1>Hutan Tropis</h1>
+    <p>Surga Alam Tersembunyi di Wonogra Island</p>
+    <p>Rasakan kedamaian, hirup udara murni, kembali dekat dengan alam.</p>
+  </div>
+</header>
+
+    <!-- TEKS KANAN -->
+    <div class="hero-text fade-right">
+      <h1 class="hero-title">Wonogra Island</h1>
+      <h2 class="hero-subtitle">Hutan Tropis yang Menyimpan Keajaiban</h2>
+
+      <p class="hero-desc">
+        Jelajahi dunia alami yang penuh misteri, udara bersih, dan ketenangan.
+        Tempat terbaik untuk healing, eksplorasi alam, dan dokumentasi alam liar.
+      </p>
+
+      <a href="#Tentang" class="hero-btn">Mulai Jelajah</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- ========== HEADER (preserved) ========== -->
 <header class="fade-down parallax">
   <h1>Hutan Tropis</h1>
@@ -181,7 +264,7 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
   <p>Rasakan kedamaian, hirup udara murni, kembali dekat dengan alam.</p>
 </header>
 
-<!-- ========== ORIGINAL: TENTANG (preserved) ========== -->
+<!-- ========== ORIGINAL: TENTANG (preserved, ditambah detail) ========== -->
 <section class="fade-up">
   <h2 class="section-title">Tentang Tempat</h2>
   <div class="about">
@@ -191,26 +274,63 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
       Pepohonan ratusan tahun, udara lembap yang menyejukkan, serta suara satwa liar menciptakan suasana
       yang tidak ditemukan di lokasi wisata modern. Cocok untuk perjalanan healing, dokumentasi alam,
       dan penelitian lingkungan.
+
+      <!-- tambahan deskripsi cinematic + informatif -->
+      <p style="margin-top:12px;">
+        Terbentuk selama ratusan tahun, area ini kini menjadi laboratorium hidup bagi para peneliti
+        dan tempat pemberhentian bagi pelancong yang mencari ketenangan. Saat fajar, kabut tipis
+        menutup kanopi, menyisakan siluet pohon dan cahaya yang menembus daun — momen yang kerap
+        menjadi favorit para fotografer alam. Kami menjaga wilayah ini dengan prinsip konservasi:
+        pengunjung dipandu untuk meminimalkan jejak dan membantu menjaga habitat alami.
+      </p>
+
+      <p style="margin-top:10px;">
+        Bagi mereka yang menginginkan pengalaman lebih mendalam, tersedia program edukasi lapangan
+        bekerjasama dengan komunitas lokal dan peneliti lapangan. Program ini memperkenalkan
+        taksonomi tumbuhan, identifikasi jejak satwa, hingga studi mikro-ekosistem di sekitar sungai.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ========== ORIGINAL: DAYA TARIK (preserved) ========== -->
+<!-- ========== ORIGINAL: DAYA TARIK (preserved, ditambah detail per item) ========== -->
 <section class="fade-up">
   <h2 class="section-title fade-up">Daya Tarik Utama</h2>
   <div class="features">
-    <div class="fade-up delay-1">Trekking Alam</div>
-    <div class="fade-up delay-2">Air Terjun Tersembunyi</div>
-    <div class="fade-up delay-3">Satwa & Flora Langka</div>
-    <div class="fade-up delay-1">Camping & Survival Spot</div>
-    <div class="fade-up delay-2">Jembatan Kanopi 30 Meter</div>
-    <div class="fade-up delay-3">Pemandu & Dokumentasi Eksklusif</div>
+    <div class="fade-up delay-1">
+      <strong>Trekking Alam</strong>
+      <p style="font-weight:400; font-size:15px; margin-top:8px;">Jalur trekking menantang dan mudah diakses yang membawa Anda menyusuri lorong akar dan sungai kecil. Terdapat rute singkat hingga jalur sehari penuh untuk petualang.</p>
+    </div>
+    <div class="fade-up delay-2">
+      <strong>Air Terjun Tersembunyi</strong>
+      <p style="font-weight:400; font-size:15px; margin-top:8px;">Air terjun yang jernih dan alami—cocok untuk berenang singkat atau foto eksotis. Akses ke lokasi ini melalui jalur yang dipandu untuk menjaga keselamatan.</p>
+    </div>
+    <div class="fade-up delay-3">
+      <strong>Satwa & Flora Langka</strong>
+      <p style="font-weight:400; font-size:15px; margin-top:8px;">Rumah bagi berbagai spesies endemik; pengamatan dilakukan dengan etika konservasi sehingga tidak mengganggu habitat.</p>
+    </div>
+    <div class="fade-up delay-1">
+      <strong>Camping & Survival Spot</strong>
+      <p style="font-weight:400; font-size:15px; margin-top:8px;">Area camping aman dilengkapi titik api terkontrol dan lokasi hammock. Program survival mengajarkan teknik dasar bertahan hidup secara bertanggung jawab.</p>
+    </div>
+    <div class="fade-up delay-2">
+      <strong>Jembatan Kanopi 30 Meter</strong>
+      <p style="font-weight:400; font-size:15px; margin-top:8px;">Jembatan gantung menawarkan perspektif vertikal hutan — cocok untuk foto pemandangan dan merasakan kemegahan kanopi.</p>
+    </div>
+    <div class="fade-up delay-3">
+      <strong>Pemandu & Dokumentasi Eksklusif</strong>
+      <p style="font-weight:400; font-size:15px; margin-top:8px;">Pemandu lokal terlatih menyediakan cerita budaya, identifikasi tumbuhan, serta paket dokumentasi foto/video profesional.</p>
+    </div>
   </div>
 </section>
 
-<!-- ========== ORIGINAL: HORIZONTAL GALLERY (preserved but fixed) ========== -->
+<!-- ========== ORIGINAL: HORIZONTAL GALLERY (preserved but ditambah intro) ========== -->
 <section class="fade-up">
   <h2 class="section-title">Galeri</h2>
+  <p style="font-size:16px; margin-top:6px; max-width:900px;">
+    Koleksi foto singkat ini menangkap suasana nyata Wonogra Island — dari detail daun basah,
+    tekstur kulit pohon, hingga momen air terjun yang jatuh dengan megah. Geser untuk melihat lebih banyak.
+  </p>
   <div class="gallery" aria-label="Galeri foto">
     <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop" alt="Galeri 1" class="zoom-in" loading="lazy">
     <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Galeri 2" class="zoom-in" loading="lazy">
@@ -220,32 +340,38 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
   </div>
 </section>
 
-<!-- ========== ORIGINAL: HARGA & PAKET (preserved) ========== -->
+<!-- ========== ORIGINAL: HARGA & PAKET (preserved, ditambah detail paket) ========== -->
 <section class="fade-up">
   <h2 class="section-title">Harga & Paket</h2>
+  <p style="font-size:16px; margin-top:6px; max-width:900px;">
+    Semua paket termasuk pemandu terlatih, standar keselamatan, dan opsi dokumentasi (foto/video) berbayar. Harga dapat berubah mengikuti musim; silakan konfirmasi sebelum memesan.
+  </p>
   <div class="pricing">
     <div class="card slide-up">
       <h3>Paket Eksplorasi</h3>
       <p>Rp 45.000</p>
       <span>Jelajah hutan + spot foto</span><br><br>
+      <p style="font-size:14px; opacity:0.9;">Durasi: 1–2 jam • Cocok untuk keluarga dan pemula. Fasilitas: pemandu dasar, rute aman, titik foto.</p>
       <button>Pesan</button>
     </div>
     <div class="card slide-up">
       <h3>Paket Petualang</h3>
       <p>Rp 90.000</p>
       <span>Trekking + air terjun + camping</span><br><br>
+      <p style="font-size:14px; opacity:0.9;">Durasi: 3–5 jam • Termasuk kunjungan air terjun dan area camping dasar. Disarankan memakai sepatu trekking.</p>
       <button>Pesan</button>
     </div>
     <div class="card slide-up">
       <h3>Paket Survival</h3>
       <p>Rp 150.000</p>
       <span>Camping + pelatihan survival + jelajah malam</span><br><br>
+      <p style="font-size:14px; opacity:0.9;">Durasi: full-day / bermalam • Termasuk pelatihan teknik bertahan hidup dengan instruktur bersertifikat.</p>
       <button>Pesan</button>
     </div>
   </div>
 </section>
 
-<!-- ========== ORIGINAL: BROCHURE (preserved) ========== -->
+<!-- ========== ORIGINAL: BROCHURE (preserved, ditambah detail & CTA kecil) ========== -->
 <section class="brochure fade-left">
   <h2 class="section-title">Informasi Tambahan</h2>
   <p>Hutan Tropis Wonogra Island dirancang tidak hanya sebagai tempat wisata,
@@ -261,14 +387,36 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
     <li>Area santai hammock di puncak bukit</li>
   </ul>
 
-  <p>Keamanan pengunjung menjadi prioritas, semua perjalanan didampingi ranger lokal
-  yang berpengalaman dan pelatihan dasar diberikan sebelum petualangan dimulai.</p>
+  <p style="margin-top:10px;">
+    Keamanan pengunjung menjadi prioritas, semua perjalanan didampingi ranger lokal
+    yang berpengalaman dan pelatihan dasar diberikan sebelum petualangan dimulai.
+    Untuk pemesanan grup atau kegiatan penelitian, tersedia paket khusus dan diskon.
+  </p>
+</section>
+
+<!-- ========== NEW SECTION: SEJARAH SINGKAT ========== -->
+<section class="fade-up">
+  <h2 class="section-title">Sejarah Singkat & Konservasi</h2>
+  <p style="font-size:16px; line-height:1.7;">
+    Wonogra Island memiliki akar sejarah yang kuat—awal mulanya adalah lahan hutan adat
+    yang dikelola oleh komunitas setempat secara turun-temurun. Dalam beberapa dekade terakhir,
+    upaya konservasi kolaboratif antara masyarakat lokal dan lembaga konservasi telah
+    membantu melindungi wilayah ini dari penebangan dan alih fungsi lahan.
+  </p>
+  <p style="font-size:16px; line-height:1.7; margin-top:8px;">
+    Saat ini, sebagian besar area dikelola dengan prinsip pemulihan habitat, penelitian
+    keberlanjutan, dan pendidikan lingkungan. Kunjungan yang bertanggung jawab merupakan
+    bagian penting dari strategi mempertahankan nilai ekologi pulau ini.
+  </p>
 </section>
 
 <!-- ========== MEGA GALLERY SECTIONS (E) ========== -->
 <!-- Grid -->
 <section class="gallery-section fade-up">
   <h2 class="section-title">Galeri Grid Profesional</h2>
+  <p style="font-size:16px; margin-top:6px; max-width:900px;">
+    Penataan grid memberikan perspektif simetris—bagus untuk melihat detail warna, pola daun, dan tekstur lanskap.
+  </p>
   <div class="grid-gallery">
     <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Grid 1" loading="lazy">
     <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Grid 2" loading="lazy">
@@ -282,6 +430,9 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
 <!-- Masonry -->
 <section class="gallery-section fade-up">
   <h2 class="section-title">Galeri Masonry (Pinterest Style)</h2>
+  <p style="font-size:16px; margin-top:6px; max-width:900px;">
+    Masonry menampilkan foto dengan berbagai proporsi — sempurna untuk menampilkan lanskap vertikal seperti pohon tinggi atau tebing air terjun.
+  </p>
   <div class="masonry">
     <div class="m-item"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="M1" loading="lazy"></div>
     <div class="m-item"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=900&auto=format&fit=crop" alt="M2" loading="lazy"></div>
@@ -295,6 +446,9 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
 <!-- Carousel -->
 <section class="gallery-section fade-up">
   <h2 class="section-title">Carousel Cinematic</h2>
+  <p style="font-size:16px; margin-top:6px; max-width:900px;">
+    Slide otomatis menampilkan momen-momen berkualitas tinggi — biarkan layar berbicara saat Anda menikmati panorama secara penuh.
+  </p>
   <div class="carousel" aria-roledescription="carousel">
     <div class="carousel-track">
       <div class="carousel-item"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1400&auto=format&fit=crop" alt="Carousel 1" loading="lazy"></div>
@@ -311,6 +465,9 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
 <!-- Parallax Grid -->
 <section class="gallery-section fade-up">
   <h2 class="section-title">Parallax Grid Premium</h2>
+  <p style="font-size:16px; margin-top:6px; max-width:900px;">
+    Parallax grid menggabungkan elemen besar dan kecil, menciptakan fokus visual sekaligus rasa kedalaman.
+  </p>
   <div class="parallax-grid">
     <div class="hero parallax"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400&auto=format&fit=crop" alt="Hero Large" loading="lazy"></div>
     <div class="tiles">
@@ -323,6 +480,9 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
 <!-- Super Combo -->
 <section class="gallery-section fade-up">
   <h2 class="section-title">Super Combo Gallery</h2>
+  <p style="font-size:16px; margin-top:6px; max-width:900px;">
+    Koleksi kecil yang memperlihatkan ragam aspek hutan — detail, close-up, dan pemandangan luas.
+  </p>
   <div class="super-combo">
     <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=800&auto=format&fit=crop" alt="Combo 1" loading="lazy">
     <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="Combo 2" loading="lazy">
@@ -331,6 +491,79 @@ footer { background: var(--bg-light); text-align:center; padding:18px; font-size
     <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" alt="Combo 5" loading="lazy">
     <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop" alt="Combo 6" loading="lazy">
   </div>
+</section>
+
+<!-- ========== NEW SECTION: FASILITAS ========== -->
+<section class="fade-up">
+  <h2 class="section-title">Fasilitas & Layanan</h2>
+  <p style="font-size:16px; line-height:1.7;">
+    Untuk kenyamanan pengunjung, Wonogra Island menyediakan fasilitas dasar: area parkir aman, pusat informasi,
+    toilet umum yang terawat, titik sampah terpilah, dan pos kesehatan darurat. Layanan tambahan seperti penyewaan
+    peralatan trekking, hammock, dan paket dokumentasi foto/video tersedia berdasarkan permintaan.
+  </p>
+  <p style="font-size:16px; margin-top:8px;">
+    Bagi kampus dan kelompok riset, kami menyediakan fasilitas koordinasi lapangan dan dukungan logistik dengan
+    perizinan yang jelas sehingga kegiatan penelitian dapat berjalan aman dan sesuai regulasi.
+  </p>
+</section>
+
+<!-- ========== NEW SECTION: TIPS BERKUNJUNG ========== -->
+<section class="fade-up">
+  <h2 class="section-title">Tips Berkunjung</h2>
+  <ul style="font-size:16px; line-height:1.8; padding-left:20px;">
+    <li>Gunakan alas kaki tertutup, tahan air, dan anti-selip untuk jalur berbatu.</li>
+    <li>Bawa air minum cadangan serta makanan ringan; simpan sampah pada kantong tertutup.</li>
+    <li>Gunakan sunblock dan topi pada perjalanan siang; pada malam hari bawa senter cadangan.</li>
+    <li>Hormati petunjuk ranger, jangan memberi makan satwa liar, dan hindari suara keras yang dapat mengganggu habitat.</li>
+    <li>Periksa ramalan cuaca sebelum berangkat—beberapa jalur dapat licin saat hujan.</li>
+  </ul>
+</section>
+
+<!-- ========== NEW SECTION: PERATURAN PENGUNJUNG ========== -->
+<section class="fade-up">
+  <h2 class="section-title">Peraturan Pengunjung</h2>
+  <p style="font-size:16px; line-height:1.7;">
+    Untuk menjaga kelestarian, pengunjung diminta untuk:
+  </p>
+  <ul style="font-size:16px; line-height:1.8; padding-left:20px;">
+    <li>Mengikuti instruksi pemandu dan jalur yang ditentukan.</li>
+    <li>Tidak menebang atau merusak tumbuhan; larangan membawa pulang flora/fauna apapun.</li>
+    <li>Membuang sampah pada tempatnya dan membawa kembali barang pribadi.</li>
+    <li>Melaporkan kejadian darurat pada pos ranger terdekat segera.</li>
+  </ul>
+</section>
+
+<!-- ========== NEW SECTION: TESTIMONI PENGUNJUNG ========== -->
+<section class="fade-up">
+  <h2 class="section-title">Testimoni Pengunjung</h2>
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px;">
+    <blockquote style="padding:18px; border-left:4px solid var(--accent); background: rgba(0,0,0,0.03);">
+      <strong>“Pengalaman yang menenangkan.”</strong>
+      <p style="margin-top:8px;">“Suasana hutan membuat kami lupa waktu. Pemandu sangat membantu dan rute terjaga rapi.” — Lina, Yogyakarta</p>
+    </blockquote>
+    <blockquote style="padding:18px; border-left:4px solid var(--accent); background: rgba(0,0,0,0.03);">
+      <strong>“Klasik dan alami.”</strong>
+      <p style="margin-top:8px;">“Foto-fotonya luar biasa. Worth it untuk dokumentasi materi alam.” — Rafi, Bandung</p>
+    </blockquote>
+    <blockquote style="padding:18px; border-left:4px solid var(--accent); background: rgba(0,0,0,0.03);">
+      <strong>“Ramah lingkungan & profesional.”</strong>
+      <p style="margin-top:8px;">“Program survival sangat informatif dan aman. Instruktur berpengalaman.” — Mei, Surabaya</p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ========== NEW SECTION: PENUTUP CINEMATIC ========== -->
+<section class="fade-up">
+  <h2 class="section-title">Akhir Kata</h2>
+  <p style="font-size:16px; line-height:1.7;">
+    Wonogra Island bukan sekadar destinasi—ia adalah undangan untuk mengingat kembali hubungan kita dengan alam.
+    Dari langkah pertama di jalur berbatu hingga malam yang dipenuhi bintang, setiap momen menyimpan pelajaran
+    tentang kesabaran, keseimbangan, dan keajaiban ekosistem yang rapuh.
+  </p>
+  <p style="font-size:16px; margin-top:8px;">
+    Datanglah dengan rasa ingin tahu, pulanglah dengan rasa hormat — dan bila berkenan, bagikan cerita Anda agar lebih banyak orang
+    turut menjaga keindahan ini.
+  </p>
 </section>
 
 <!-- ========== CONTACT & FOOTER (preserved) ========== -->
