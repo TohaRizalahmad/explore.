@@ -129,6 +129,9 @@
 
     section:nth-of-type(even) p, section:nth-of-type(even) li, section:nth-of-type(even) .about-text { color: #eee; }
 
+    /* FIX: Ensure odd sections have dark text for readability */
+    section:nth-of-type(odd) p, section:nth-of-type(odd) li, section:nth-of-type(odd) .about-text, section:nth-of-type(odd) .features div { color: #222; }
+
     /* ========== ORIGINAL LAYOUT (KEPRESERVASI) ========== */
     .about { display:flex; gap:30px; flex-wrap:wrap; align-items:center; }
     .about img { width:460px; height:320px; object-fit:cover; filter:grayscale(100%); display:block; border-radius:6px; }
@@ -140,7 +143,7 @@
       gap:25px; margin-top:20px;
     }
     .features div {
-      border:1px solid currentColor; padding:28px; text-align:center; font-weight:600; background:transparent; border-radius:8px;
+      border:1px solid currentColor; padding:28px; text-align:center; font-weight:600; background:transparent; border-radius:8px; color: #222;
     }
 
     /* original horizontal gallery */
@@ -258,65 +261,6 @@
     </div>
   </header>
 
-  <!-- ========== ORIGINAL: TENTANG (preserved, ditambah detail) ========== -->
-  <section id="Tentang" class="fade-up" aria-labelledby="tentang-title">
-    <h2 id="tentang-title" class="section-title">Tentang Tempat</h2>
-    <div class="about">
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Hutan Tropis" class="fade-right parallax" loading="lazy">
-      <div class="about-text fade-left">
-        Hutan Tropis di Wonogra Island menawarkan pengalaman eksplorasi alam yang tenang dan mendalam.
-        Pepohonan ratusan tahun, udara lembap yang menyejukkan, serta suara satwa liar menciptakan suasana
-        yang tidak ditemukan di lokasi wisata modern. Cocok untuk perjalanan healing, dokumentasi alam,
-        dan penelitian lingkungan.
-
-        <p style="margin-top:12px;">
-          Terbentuk selama ratusan tahun, area ini kini menjadi laboratorium hidup bagi para peneliti
-          dan tempat pemberhentian bagi pelancong yang mencari ketenangan. Saat fajar, kabut tipis
-          menutup kanopi, menyisakan siluet pohon dan cahaya yang menembus daun — momen yang kerap
-          menjadi favorit para fotografer alam. Kami menjaga wilayah ini dengan prinsip konservasi:
-          pengunjung dipandu untuk meminimalkan jejak dan membantu menjaga habitat alami.
-        </p>
-
-        <p style="margin-top:10px;">
-          Bagi mereka yang menginginkan pengalaman lebih mendalam, tersedia program edukasi lapangan
-          bekerjasama dengan komunitas lokal dan peneliti lapangan. Program ini memperkenalkan
-          taksonomi tumbuhan, identifikasi jejak satwa, hingga studi mikro-ekosistem di sekitar sungai.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DAYA TARIK ========== -->
-  <section class="fade-up">
-    <h2 class="section-title">Daya Tarik Utama</h2>
-    <div class="features">
-      <div class="fade-up delay-1">
-        <strong>Trekking Alam</strong>
-        <p style="font-weight:400; font-size:15px; margin-top:8px;">Jalur trekking menantang dan mudah diakses yang membawa Anda menyusuri lorong akar dan sungai kecil. Terdapat rute singkat hingga jalur sehari penuh untuk petualang.</p>
-      </div>
-      <div class="fade-up delay-2">
-        <strong>Air Terjun Tersembunyi</strong>
-        <p style="font-weight:400; font-size:15px; margin-top:8px;">Air terjun yang jernih dan alami—cocok untuk berenang singkat atau foto eksotis. Akses ke lokasi ini melalui jalur yang dipandu untuk menjaga keselamatan.</p>
-      </div>
-      <div class="fade-up delay-3">
-        <strong>Satwa & Flora Langka</strong>
-        <p style="font-weight:400; font-size:15px; margin-top:8px;">Rumah bagi berbagai spesies endemik; pengamatan dilakukan dengan etika konservasi sehingga tidak mengganggu habitat.</p>
-      </div>
-      <div class="fade-up delay-1">
-        <strong>Camping & Survival Spot</strong>
-        <p style="font-weight:400; font-size:15px; margin-top:8px;">Area camping aman dilengkapi titik api terkontrol dan lokasi hammock. Program survival mengajarkan teknik dasar bertahan hidup secara bertanggung jawab.</p>
-      </div>
-      <div class="fade-up delay-2">
-        <strong>Jembatan Kanopi 30 Meter</strong>
-        <p style="font-weight:400; font-size:15px; margin-top:8px;">Jembatan gantung menawarkan perspektif vertikal hutan — cocok untuk foto pemandangan dan merasakan kemegahan kanopi.</p>
-      </div>
-      <div class="fade-up delay-3">
-        <strong>Pemandu & Dokumentasi Eksklusif</strong>
-        <p style="font-weight:400; font-size:15px; margin-top:8px;">Pemandu lokal terlatih menyediakan cerita budaya, identifikasi tumbuhan, serta paket dokumentasi foto/video profesional.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== HORIZONTAL GALLERY ========== -->
   <section class="fade-up">
     <h2 class="section-title">Galeri</h2>
@@ -333,76 +277,7 @@
     </div>
   </section>
 
-  <!-- ========== HARGA & PAKET ========== -->
-  <section class="fade-up">
-    <h2 class="section-title">Harga & Paket</h2>
-    <p style="font-size:16px; margin-top:6px; max-width:900px;">
-      Semua paket termasuk pemandu terlatih, standar keselamatan, dan opsi dokumentasi (foto/video) berbayar. Harga dapat berubah mengikuti musim; silakan konfirmasi sebelum memesan.
-    </p>
-    <div class="pricing">
-      <div class="card slide-up">
-        <h3>Paket Eksplorasi</h3>
-        <p>Rp 45.000</p>
-        <span>Jelajah hutan + spot foto</span><br><br>
-        <p style="font-size:14px; opacity:0.9;">Durasi: 1–2 jam • Cocok untuk keluarga dan pemula. Fasilitas: pemandu dasar, rute aman, titik foto.</p>
-        <button>Pesan</button>
-      </div>
-      <div class="card slide-up">
-        <h3>Paket Petualang</h3>
-        <p>Rp 90.000</p>
-        <span>Trekking + air terjun + camping</span><br><br>
-        <p style="font-size:14px; opacity:0.9;">Durasi: 3–5 jam • Termasuk kunjungan air terjun dan area camping dasar. Disarankan memakai sepatu trekking.</p>
-        <button>Pesan</button>
-      </div>
-      <div class="card slide-up">
-        <h3>Paket Survival</h3>
-        <p>Rp 150.000</p>
-        <span>Camping + pelatihan survival + jelajah malam</span><br><br>
-        <p style="font-size:14px; opacity:0.9;">Durasi: full-day / bermalam • Termasuk pelatihan teknik bertahan hidup dengan instruktur bersertifikat.</p>
-        <button>Pesan</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== BROCHURE ========== -->
-  <section class="brochure fade-left">
-    <h2 class="section-title">Informasi Tambahan</h2>
-    <p>Hutan Tropis Wonogra Island dirancang tidak hanya sebagai tempat wisata,
-    tetapi juga sebagai kawasan edukatif dan konservasi ekosistem. Setiap pengunjung
-    turut berkontribusi dalam pelestarian alam.</p>
-
-    <p>Aktivitas yang tersedia:</p>
-    <ul>
-      <li>Observasi burung langka menggunakan teropong konservasi</li>
-      <li>Workshop bertahan hidup di alam liar (pilihan opsional)</li>
-      <li>Pengamatan bintang tanpa polusi cahaya</li>
-      <li>Tur edukasi flora untuk mahasiswa & peneliti</li>
-      <li>Area santai hammock di puncak bukit</li>
-    </ul>
-
-    <p style="margin-top:10px;">
-      Keamanan pengunjung menjadi prioritas, semua perjalanan didampingi ranger lokal
-      yang berpengalaman dan pelatihan dasar diberikan sebelum petualangan dimulai.
-      Untuk pemesanan grup atau kegiatan penelitian, tersedia paket khusus dan diskon.
-    </p>
-  </section>
-
-  <!-- ========== SEJARAH SINGKAT ========== -->
-  <section class="fade-up">
-    <h2 class="section-title">Sejarah Singkat & Konservasi</h2>
-    <p style="font-size:16px; line-height:1.7;">
-      Wonogra Island memiliki akar sejarah yang kuat—awal mulanya adalah lahan hutan adat
-      yang dikelola oleh komunitas setempat secara turun-temurun. Dalam beberapa dekade terakhir,
-      upaya konservasi kolaboratif antara masyarakat lokal dan lembaga konservasi telah
-      membantu melindungi wilayah ini dari penebangan dan alih fungsi lahan.
-    </p>
-    <p style="font-size:16px; line-height:1.7; margin-top:8px;">
-      Saat ini, sebagian besar area dikelola dengan prinsip pemulihan habitat, penelitian
-      keberlanjutan, dan pendidikan lingkungan. Kunjungan yang bertanggung jawab merupakan
-      bagian penting dari strategi mempertahankan nilai ekologi pulau ini.
-    </p>
-  </section>
-
+  
   <!-- ========== GALERI GRID ========== -->
   <section class="gallery-section fade-up">
     <h2 class="section-title">Galeri Grid Profesional</h2>
@@ -483,6 +358,76 @@
       <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" alt="Combo 5" loading="lazy">
       <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop" alt="Combo 6" loading="lazy">
     </div>
+  </section>
+
+  <!-- ========== HARGA & PAKET ========== -->
+  <section class="fade-up">
+    <h2 class="section-title">Harga & Paket</h2>
+    <p style="font-size:16px; margin-top:6px; max-width:900px;">
+      Semua paket termasuk pemandu terlatih, standar keselamatan, dan opsi dokumentasi (foto/video) berbayar. Harga dapat berubah mengikuti musim; silakan konfirmasi sebelum memesan.
+    </p>
+    <div class="pricing">
+      <div class="card slide-up">
+        <h3>Paket Eksplorasi</h3>
+        <p>Rp 45.000</p>
+        <span>Jelajah hutan + spot foto</span><br><br>
+        <p style="font-size:14px; opacity:0.9;">Durasi: 1–2 jam • Cocok untuk keluarga dan pemula. Fasilitas: pemandu dasar, rute aman, titik foto.</p>
+        <button>Pesan</button>
+      </div>
+      <div class="card slide-up">
+        <h3>Paket Petualang</h3>
+        <p>Rp 90.000</p>
+        <span>Trekking + air terjun + camping</span><br><br>
+        <p style="font-size:14px; opacity:0.9;">Durasi: 3–5 jam • Termasuk kunjungan air terjun dan area camping dasar. Disarankan memakai sepatu trekking.</p>
+        <button>Pesan</button>
+      </div>
+      <div class="card slide-up">
+        <h3>Paket Survival</h3>
+        <p>Rp 150.000</p>
+        <span>Camping + pelatihan survival + jelajah malam</span><br><br>
+        <p style="font-size:14px; opacity:0.9;">Durasi: full-day / bermalam • Termasuk pelatihan teknik bertahan hidup dengan instruktur bersertifikat.</p>
+        <button>Pesan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BROCHURE ========== -->
+  <section class="brochure fade-left">
+    <h2 class="section-title">Informasi Tambahan</h2>
+    <p>Hutan Tropis Wonogra Island dirancang tidak hanya sebagai tempat wisata,
+    tetapi juga sebagai kawasan edukatif dan konservasi ekosistem. Setiap pengunjung
+    turut berkontribusi dalam pelestarian alam.</p>
+
+    <p>Aktivitas yang tersedia:</p>
+    <ul>
+      <li>Observasi burung langka menggunakan teropong konservasi</li>
+      <li>Workshop bertahan hidup di alam liar (pilihan opsional)</li>
+      <li>Pengamatan bintang tanpa polusi cahaya</li>
+      <li>Tur edukasi flora untuk mahasiswa & peneliti</li>
+      <li>Area santai hammock di puncak bukit</li>
+    </ul>
+
+    <p style="margin-top:10px;">
+      Keamanan pengunjung menjadi prioritas, semua perjalanan didampingi ranger lokal
+      yang berpengalaman dan pelatihan dasar diberikan sebelum petualangan dimulai.
+      Untuk pemesanan grup atau kegiatan penelitian, tersedia paket khusus dan diskon.
+    </p>
+  </section>
+
+  <!-- ========== SEJARAH SINGKAT ========== -->
+  <section class="fade-up">
+    <h2 class="section-title">Sejarah Singkat & Konservasi</h2>
+    <p style="font-size:16px; line-height:1.7;">
+      Wonogra Island memiliki akar sejarah yang kuat—awal mulanya adalah lahan hutan adat
+      yang dikelola oleh komunitas setempat secara turun-temurun. Dalam beberapa dekade terakhir,
+      upaya konservasi kolaboratif antara masyarakat lokal dan lembaga konservasi telah
+      membantu melindungi wilayah ini dari penebangan dan alih fungsi lahan.
+    </p>
+    <p style="font-size:16px; line-height:1.7; margin-top:8px;">
+      Saat ini, sebagian besar area dikelola dengan prinsip pemulihan habitat, penelitian
+      keberlanjutan, dan pendidikan lingkungan. Kunjungan yang bertanggung jawab merupakan
+      bagian penting dari strategi mempertahankan nilai ekologi pulau ini.
+    </p>
   </section>
 
   <!-- ========== FASILITAS ========== -->
