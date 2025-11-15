@@ -7,6 +7,8 @@
   <meta name="description" content="Wonogra Island — Hutan tropis untuk eksplorasi, konservasi, dan healing. Paket trekking, camping, dan program edukasi lingkungan." />
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     /* ====== HERO HEADER FULLSCREEN ====== */
@@ -244,7 +246,177 @@
     /* small responsive tweaks */
     @media (max-width:1000px){ .grid-gallery{ grid-template-columns: repeat(2,1fr) } .masonry{ column-count:2 } }
     @media (max-width:600px){ .grid-gallery{ grid-template-columns:1fr } .masonry{ column-count:1 } .parallax-grid{ grid-template-columns:1fr } .carousel{ height:260px } .parallax-grid .hero{ height:260px } }
-  </style>
+
+   /* ===== SOCIAL MINI SECTION (ChromeOS style) ===== */
+.social-mini {
+  background: #0b0b0b;
+  color: #fff;
+  text-align: center;
+  padding: 60px 8%;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.social-mini .section-title {
+  color: #fff !important;
+  margin-bottom: 24px;
+}
+
+.social-icons i {
+  font-size: 32px;
+  color: #fff;
+  opacity: 0.85;
+  transition: .3s;
+}
+
+.social-icons i:hover {
+  opacity: 1;
+  transform: scale(1.18);
+}
+
+/* Ikon dasar */
+.icon {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(1) opacity(0.9);   /* putih ala Chromebook */
+  transition: opacity .3s, transform .3s;
+}
+
+.icon:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* ICON SOURCES (SVG inline via data-URL agar ringan) */
+
+/* Instagram */
+.icon.ig {
+  background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');
+}
+
+/* TikTok */
+.icon.tiktok {
+  background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');
+}
+
+/* YouTube */
+.icon.yt {
+  background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg');
+}
+
+/* Facebook */
+.icon.fb {
+  background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg');
+}
+
+/* WhatsApp */
+.icon.wa {
+  background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg');
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .social-icons {
+    gap: 18px;
+  }
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Mode ikon terang (hitam) */
+.social-light .icon {
+  filter: invert(0) opacity(0.9); /* hitam */
+}
+
+/* Mode ikon gelap (putih) */
+.social-dark .icon {
+  filter: invert(1) opacity(0.9); /* putih */
+}
+/* Ikon hitam ketika background putih */
+.social-light .icon {
+  filter: invert(0) opacity(0.9);
+}
+
+/* Ikon putih ketika background gelap */
+.social-dark .icon {
+  filter: invert(1) opacity(0.9);
+}
+
+.info-3col {
+  padding: 90px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.info-main-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  letter-spacing: 0.6px;
+}
+
+.info-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.info-box {
+  text-align: center;
+  padding: 10px;
+}
+
+.info-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.info-desc {
+  font-size: 18px;
+  line-height: 1.65;
+  opacity: 0.85;
+}
+
+.gallery-text {
+  text-align: center;
+  padding: 90px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.gallery-big-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: 0.6px;
+}
+
+.gallery-big-desc {
+  font-size: 20px;
+  line-height: 1.65;
+  max-width: 800px;
+  margin: 0 auto 45px auto;
+  opacity: 0.85;
+}
+
+.gallery-img img {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 14px;
+  display: block;
+  margin: auto;
+}
+
+</style>
 </head>
 <body>
 
@@ -261,6 +433,26 @@
     </div>
   </header>
 
+  <section class="social-mini social-light fade-up">
+  <div class="social-icons" style="display:flex; gap:26px; justify-content:center; flex-wrap:wrap;">
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+      <span class="icon ig"></span>
+    </a>
+    <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+      <span class="icon tiktok"></span>
+    </a>
+    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+      <span class="icon yt"></span>
+    </a>
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+      <span class="icon fb"></span>
+    </a>
+    <a href="https://wa.me/628123456789" target="_blank" aria-label="WhatsApp">
+      <span class="icon wa"></span>
+    </a>
+  </div>
+</section>
+
   <!-- ========== HORIZONTAL GALLERY ========== -->
   <section class="fade-up">
     <h2 class="section-title">Galeri</h2>
@@ -276,40 +468,7 @@
       <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Galeri 5" class="zoom-in" loading="lazy">
     </div>
   </section>
-
   
-  <!-- ========== GALERI GRID ========== -->
-  <section class="gallery-section fade-up">
-    <h2 class="section-title">Galeri Grid Profesional</h2>
-    <p style="font-size:16px; margin-top:6px; max-width:900px;">
-      Penataan grid memberikan perspektif simetris—bagus untuk melihat detail warna, pola daun, dan tekstur lanskap.
-    </p>
-    <div class="grid-gallery">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Grid 1" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Grid 2" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Grid 3" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="Grid 4" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1200&auto=format&fit=crop" alt="Grid 5" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Grid 6" loading="lazy">
-    </div>
-  </section>
-
-  <!-- ========== MASONRY ========== -->
-  <section class="gallery-section fade-up">
-    <h2 class="section-title">Galeri Masonry (Pinterest Style)</h2>
-    <p style="font-size:16px; margin-top:6px; max-width:900px;">
-      Masonry menampilkan foto dengan berbagai proporsi — sempurna untuk menampilkan lanskap vertikal seperti pohon tinggi atau tebing air terjun.
-    </p>
-    <div class="masonry">
-      <div class="m-item"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="M1" loading="lazy"></div>
-      <div class="m-item"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=900&auto=format&fit=crop" alt="M2" loading="lazy"></div>
-      <div class="m-item"><img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=900&auto=format&fit=crop" alt="M3" loading="lazy"></div>
-      <div class="m-item"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=900&auto=format&fit=crop" alt="M4" loading="lazy"></div>
-      <div class="m-item"><img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=900&auto=format&fit=crop" alt="M5" loading="lazy"></div>
-      <div class="m-item"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop" alt="M6" loading="lazy"></div>
-    </div>
-  </section>
-
   <!-- ========== CAROUSEL ========== -->
   <section class="gallery-section fade-up">
     <h2 class="section-title">Carousel Cinematic</h2>
@@ -329,20 +488,82 @@
     </div>
   </section>
 
-  <!-- ========== PARALLAX GRID ========== -->
-  <section class="gallery-section fade-up">
-    <h2 class="section-title">Parallax Grid Premium</h2>
+   <!-- ========== HORIZONTAL GALLERY 2 ========== -->
+  <section class="fade-up">
+    <h2 class="section-title">Galeri</h2>
     <p style="font-size:16px; margin-top:6px; max-width:900px;">
-      Parallax grid menggabungkan elemen besar dan kecil, menciptakan fokus visual sekaligus rasa kedalaman.
+      Koleksi foto singkat ini menangkap suasana nyata Wonogra Island — dari detail daun basah,
+      tekstur kulit pohon, hingga momen air terjun yang jatuh dengan megah. Geser untuk melihat lebih banyak.
     </p>
-    <div class="parallax-grid">
-      <div class="hero parallax"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400&auto=format&fit=crop" alt="Hero Large" loading="lazy"></div>
-      <div class="tiles">
-        <div class="tile parallax"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=900&auto=format&fit=crop" alt="Tile 1" loading="lazy"></div>
-        <div class="tile parallax"><img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=900&auto=format&fit=crop" alt="Tile 2" loading="lazy"></div>
-      </div>
+    <div class="gallery" aria-label="Galeri foto">
+      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop" alt="Galeri 1" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Galeri 2" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="Galeri 3" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Galeri 4" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Galeri 5" class="zoom-in" loading="lazy">
     </div>
   </section>
+
+  
+<!-- ========== TABEL PROFESIONAL 3 KOLOM – GAYA CHROMEBOOK MINIMAL ========== -->
+<section class="fade-up">
+  <h2 class="section-title">Ringkasan Informasi</h2>
+
+  <div style="
+    overflow-x:auto;
+    margin-top:22px;
+    border:1px solid currentColor;
+    border-radius:10px;
+    backdrop-filter: blur(2px);
+  ">
+    <table style="
+      width:100%;
+      border-collapse:collapse;
+      font-size:16px;
+      min-width:780px;
+    ">
+      <thead>
+        <tr style="background:rgba(0,0,0,0.06);">
+          <th style="padding:14px 16px; text-align:left; font-weight:700; border-bottom:1px solid currentColor;">Kategori</th>
+          <th style="padding:14px 16px; text-align:left; font-weight:700; border-bottom:1px solid currentColor;">Detail</th>
+          <th style="padding:14px 16px; text-align:left; font-weight:700; border-bottom:1px solid currentColor;">Keterangan</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Jam Operasional</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">07.00 – 22.00</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Setiap hari</td>
+        </tr>
+
+        <tr>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Pemandu</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Tersedia untuk semua paket</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Ranger berpengalaman</td>
+        </tr>
+
+        <tr>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Fasilitas Umum</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Parkir, pos kesehatan, toilet, titik sampah</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Perawatan rutin</td>
+        </tr>
+
+        <tr>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Akses & Perizinan</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Mendukung kegiatan riset & kampus</td>
+          <td style="padding:14px 16px; border-bottom:1px solid rgba(0,0,0,0.1);">Harus booking dulu</td>
+        </tr>
+
+        <tr>
+          <td style="padding:14px 16px;">Pembayaran</td>
+          <td style="padding:14px 16px;">Transfer bank • QRIS • Cash</td>
+          <td style="padding:14px 16px;">Konfirmasi otomatis</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
   <!-- ========== SUPER COMBO ========== -->
   <section class="gallery-section fade-up">
@@ -360,34 +581,19 @@
     </div>
   </section>
 
-  <!-- ========== HARGA & PAKET ========== -->
-  <section class="fade-up">
-    <h2 class="section-title">Harga & Paket</h2>
+  <!-- ========== GALERI GRID ========== -->
+  <section class="gallery-section fade-up">
+    <h2 class="section-title">Galeri Grid Profesional</h2>
     <p style="font-size:16px; margin-top:6px; max-width:900px;">
-      Semua paket termasuk pemandu terlatih, standar keselamatan, dan opsi dokumentasi (foto/video) berbayar. Harga dapat berubah mengikuti musim; silakan konfirmasi sebelum memesan.
+      Penataan grid memberikan perspektif simetris—bagus untuk melihat detail warna, pola daun, dan tekstur lanskap.
     </p>
-    <div class="pricing">
-      <div class="card slide-up">
-        <h3>Paket Eksplorasi</h3>
-        <p>Rp 45.000</p>
-        <span>Jelajah hutan + spot foto</span><br><br>
-        <p style="font-size:14px; opacity:0.9;">Durasi: 1–2 jam • Cocok untuk keluarga dan pemula. Fasilitas: pemandu dasar, rute aman, titik foto.</p>
-        <button>Pesan</button>
-      </div>
-      <div class="card slide-up">
-        <h3>Paket Petualang</h3>
-        <p>Rp 90.000</p>
-        <span>Trekking + air terjun + camping</span><br><br>
-        <p style="font-size:14px; opacity:0.9;">Durasi: 3–5 jam • Termasuk kunjungan air terjun dan area camping dasar. Disarankan memakai sepatu trekking.</p>
-        <button>Pesan</button>
-      </div>
-      <div class="card slide-up">
-        <h3>Paket Survival</h3>
-        <p>Rp 150.000</p>
-        <span>Camping + pelatihan survival + jelajah malam</span><br><br>
-        <p style="font-size:14px; opacity:0.9;">Durasi: full-day / bermalam • Termasuk pelatihan teknik bertahan hidup dengan instruktur bersertifikat.</p>
-        <button>Pesan</button>
-      </div>
+    <div class="grid-gallery">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Grid 1" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Grid 2" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Grid 3" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="Grid 4" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1200&auto=format&fit=crop" alt="Grid 5" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Grid 6" loading="lazy">
     </div>
   </section>
 
@@ -503,18 +709,82 @@
     </p>
   </section>
 
-  <!-- ========== CONTACT & FOOTER ========== -->
-  <div class="contact fade-up" id="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title" class="section-title" style="color:#fff;">Lokasi & Kontak</h2>
-    <p>Wonogra Island – Area Hutan Tropis</p>
-    <p>Jam Operasional: 07.00 – 22.00</p>
-    <p>Telepon: +62 812 0000 0000</p>
-    <p>Email: info@wonograisland.com</p>
-  </div>
+  <!-- ========== JUDUL DENGAN JUDUL ========== -->
+  <section class="info-3col fade-up">
+  <h2 class="info-main-title">Judul Besar di Sini</h2>
 
-  <footer class="fade-up" role="contentinfo">
-    © 2025 Hutan Tropis – Wonogra Island
-  </footer>
+  <div class="info-items">
+    <div class="info-box">
+      <h3 class="info-title">Judul Pertama</h3>
+      <p class="info-desc">
+        Deskripsi singkat untuk judul pertama. Ringkas, informatif, dan konsisten dengan tema.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3 class="info-title">Judul Kedua</h3>
+      <p class="info-desc">
+        Penjelasan untuk judul kedua yang tetap relevan dan mudah dibaca.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3 class="info-title">Judul Ketiga</h3>
+      <p class="info-desc">
+        Informasi tambahan untuk judul ketiga agar struktur konten lengkap dan seimbang.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="info-2col fade-up">
+  <h2 class="info-main-title">Judul Besar Baru</h2>
+
+  <div class="info-items">
+    <div class="info-box">
+      <h3 class="info-title">Judul Pertama</h3>
+      <p class="info-desc">
+        Deskripsi untuk judul pertama. Tetap ringkas, jelas, dan tidak keluar dari tema.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3 class="info-title">Judul Kedua</h3>
+      <p class="info-desc">
+        Deskripsi untuk judul kedua. Rapi, profesional, dan mendukung tampilan halaman.
+      </p>
+    </div>
+  </div>
+</section>
+
+ <!-- ========== HORIZONTAL GALLERY 2 ========== -->
+  <section class="gallery-text fade-up">
+  <h2 class="gallery-big-title">Judul Besar Di Sini</h2>
+  <p class="gallery-big-desc">
+    Deskripsi singkat yang menjelaskan konten dari gambar di bawahnya. Teks jelas, rapi, dan dibuat rata tengah.
+  </p>
+    <div class="gallery" aria-label="Galeri foto">
+      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop" alt="Galeri 1" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Galeri 2" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="Galeri 3" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Galeri 4" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Galeri 5" class="zoom-in" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ========== CONTACT & FOOTER ========== -->
+<section class="contact fade-up" id="contact" aria-labelledby="contact-title">
+  <h2 id="contact-title" class="section-title">Lokasi & Kontak</h2>
+  
+  <p>Wonogra Island – Area Hutan Tropis</p>
+  <p>Jam Operasional: 07.00 – 22.00</p>
+  <p>Telepon: +62 812 0000 0000</p>
+  <p>Email: info@wonograisland.com</p>
+</section>
+
+<footer class="fade-up" role="contentinfo">
+  © 2025 Hutan Tropis – Wonogra Island
+</footer>
 
   <!-- ========== LIGHTBOX ========== -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
