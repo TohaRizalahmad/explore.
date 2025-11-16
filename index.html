@@ -446,6 +446,24 @@ section td, section th {
   }
 }
 
+/* FIX BACKGROUND UNTUK SECTION GALERY DUPLIKAT */
+.fix-bg {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.fix-bg .info-title,
+.fix-bg .info-desc,
+.fix-bg h3,
+.fix-bg p {
+  color: #000 !important;
+}
+
+.section-bg {
+  background: #fff !important;
+  color: #000 !important;
+}
+
 </style>
 </head>
 <body>
@@ -773,11 +791,11 @@ section td, section th {
 </section>
 
  <!-- ========== HORIZONTAL GALLERY 2 ========== -->
-  <section class="gallery-text fade-up">
-  <h2 class="gallery-big-title">Judul Besar Di Sini</h2>
-  <p class="gallery-big-desc">
-    Deskripsi singkat yang menjelaskan konten dari gambar di bawahnya. Teks jelas, rapi, dan dibuat rata tengah.
-  </p>
+  <section class="gallery-text fade-up section-bg">
+       <h3 class="info-title">Judul Kedua</h3>
+      <p class="info-desc">
+        Deskripsi untuk judul kedua. Rapi, profesional, dan mendukung tampilan halaman.
+      </p>
     <div class="gallery" aria-label="Galeri foto">
       <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop" alt="Galeri 1" class="zoom-in" loading="lazy">
       <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Galeri 2" class="zoom-in" loading="lazy">
@@ -787,19 +805,20 @@ section td, section th {
     </div>
   </section>
 
-  <!-- ========== CONTACT & FOOTER ========== -->
-<section class="contact fade-up" id="contact" aria-labelledby="contact-title">
-  <h2 id="contact-title" class="section-title">Lokasi & Kontak</h2>
-  
-  <p>Wonogra Island – Area Hutan Tropis</p>
-  <p>Jam Operasional: 07.00 – 22.00</p>
-  <p>Telepon: +62 812 0000 0000</p>
-  <p>Email: info@wonograisland.com</p>
-</section>
-
-<footer class="fade-up" role="contentinfo">
-  © 2025 Hutan Tropis – Wonogra Island
-</footer>
+   <!-- ========== HORIZONTAL GALLERY 2 ========== -->
+  <section class="gallery-text fade-up fix-bg">
+       <h3 class="info-title">Judul Kedua</h3>
+      <p class="info-desc">
+        Deskripsi untuk judul kedua. Rapi, profesional, dan mendukung tampilan halaman.
+      </p>
+    <div class="gallery" aria-label="Galeri foto">
+      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop" alt="Galeri 1" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Galeri 2" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="Galeri 3" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Galeri 4" class="zoom-in" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1508178845441-5f686b42f7b6?q=80&w=1200&auto=format&fit=crop" alt="Galeri 5" class="zoom-in" loading="lazy">
+    </div>
+  </section>
 
   <!-- ========== LIGHTBOX ========== -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
