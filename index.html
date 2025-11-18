@@ -470,9 +470,105 @@ section td, section th {
   padding-bottom: 10px !important;
 }
 
+:root {
+  --bg-light-custom: #FFFCEF;
+  --bg-dark-custom: #28443F;
+}
+
+/* section bergantian */
+section:nth-of-type(odd) {
+  background: var(--bg-light-custom);
+  color: #000;
+}
+
+section:nth-of-type(even) {
+  background: var(--bg-dark-custom);
+  color: #fff;
+}
+
+/* tulisan section gelap tetap putih */
+section:nth-of-type(even) p,
+section:nth-of-type(even) li,
+section:nth-of-type(even) h2,
+section:nth-of-type(even) .info-title,
+section:nth-of-type(even) .info-desc {
+  color: #fff !important;
+}
+
+/* tulisan section terang tetap hitam */
+section:nth-of-type(odd) p,
+section:nth-of-type(odd) li,
+section:nth-of-type(odd) h2,
+section:nth-of-type(odd) .info-title,
+section:nth-of-type(odd) .info-desc {
+  color: #000 !important;
+}
+
+.top-header {
+  position: fixed;           /* tetap saat scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 14px 8%;
+  z-index: 9999;
+  background: #28443F;
+  display: flex;
+  justify-content: center;
+}
+
+.top-inner {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.top-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.top-inner {
+  width: 100%;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.top-title {
+  justify-self: center;
+  margin: 0;
+}
+
+.top-logo {
+  justify-self: end;
+}
+
+.hero-header {
+  padding-top: 90px; /* sesuaikan dengan tinggi headermu */
+}
+
 </style>
 </head>
 <body>
+
+  <!-- ========== HEADER ========== -->
+  <div class="top-header">
+  <div class="top-inner">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop" alt="Logo" class="top-logo">
+    <h1 class="top-title">Wonogra Island</h1>
+  </div>
+</div>
 
   <!-- ========== HERO HEADER GABUNGAN (satu hero) ========== -->
   <header class="hero-header parallax" role="banner" aria-label="Hero Hutan Tropis">
