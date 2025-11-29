@@ -31,7 +31,7 @@
   color: #fff;
   padding-left: 8%;
   max-width: 720px;
-  text-align: left;   /* teks kiri */
+  text-align: center;   /* teks kiri */
   text-shadow: 0px 3px 10px rgba(0,0,0,0.65);
 }
 
@@ -479,4 +479,5 @@ section td, section th {
   width: auto;
   object-fit: contain;
   justify-self: end;
+
 }
